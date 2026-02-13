@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbars-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbars-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 210 20% 7%;
+    --foreground: 210 20% 95%;
+    --card: 210 18% 10%;
+    --card-foreground: 210 20% 95%;
+    --popover: 210 18% 10%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 172 66% 50%;
+    --primary-foreground: 210 20% 7%;
+    --secondary: 210 15% 15%;
+    --secondary-foreground: 210 15% 75%;
+    --muted: 210 15% 13%;
+    --muted-foreground: 210 10% 55%;
+    --accent: 172 66% 50%;
+    --accent-foreground: 210 20% 7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 12% 18%;
+    --input: 210 12% 18%;
+    --ring: 172 66% 50%;
+    --chart-1: 172 66% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 210 18% 10%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 172 66% 50%;
+    --sidebar-primary-foreground: 210 20% 7%;
+    --sidebar-accent: 210 15% 15%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 210 12% 18%;
+    --sidebar-ring: 172 66% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.75) hsl(var(--background));
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.35);
+    color: hsl(var(--foreground));
+  }
+
+  /* WebKit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.55);
+    border-radius: 999px;
+    border: 2px solid hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.75);
+  }
+}

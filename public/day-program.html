@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Schedule – Daily System</title>
+<script>
+/* ===================== DATA (JSON) ===================== */
+
+const DATA = {
+  dayPlans: {
+    base: [
+    {
+      time: "08:00–08:20",
+      title: "Wake up & Hydration",
+      desc: "Goal: gentle activation without cortisol spike.\n\n" +
+            "• 500ml water immediately after waking.\n" +
+            "• Daylight exposure (window, balcony, or outside).\n" +
+            "• No phone, messages, or news.\n\n" +
+            "Pro tip: If your mind starts racing, write down one thought and return to your body."
+    },
+    {
+      time: "08:20–08:45",
+      title: "Regulacja ciała i układu nerwowego",
+      desc: "Cel: obniżenie napięcia i wsparcie krążenia.\n\n" +
+            "• Krążenia stóp, łydek i kostek (profilaktyka zakrzepowa).\n" +
+            "• Delikatna mobilność kręgosłupa i barków.\n" +
+            "• 5 minut spokojnego oddechu z długim wydechem.\n\n" +
+            "Pro tip: To nie jest rozgrzewka ani trening – tempo ma uspokajać."
+    },
+    {
+      time: "08:45–09:15",
+      title: "Śniadanie – rytuał stabilności",
+      desc: "Cel: stabilna energia i glikemia.\n\n" +
+            "• Białko + węglowodany złożone.\n" +
+            "• Kawa dopiero po jedzeniu.\n" +
+            "• Jedz siedząc, powoli, bez ekranu.\n\n" +
+            "Pro tip: Jedzenie podobnego śniadania w dni robocze zmniejsza obciążenie decyzyjne."
+    },
+    {
+      time: "09:15–09:30",
+      title: "Przygotowanie mentalne",
+      desc: "Cel: redukcja chaosu poznawczego.\n\n" +
+            "• Zapisz tylko 3 najważniejsze zadania dnia.\n" +
+            "• Przygotuj stanowisko pracy.\n" +
+            "• Wybierz muzykę do fokusu (ambient / instrumental).\n\n" +
+            "Pro tip: Nie pytaj „czy mam siłę”, tylko „od czego zaczynam”."
+    },
+    {
+      time: "09:30–10:20",
+      title: "Praca – fokus głęboki (blok 1)",
+      desc: "Cel: wykorzystanie najwyższej jakości koncentracji.\n\n" +
+            "• Jedno zadanie, zero multitaskingu.\n" +
+            "• Powiadomienia wyłączone, najlepiej tryb offline.\n" +
+            "• Muzyka bez wokalu.\n\n" +
+            "Pro tip: Sprawdź postawę co ~20 minut."
+    },
+    {
+      time: "10:20–10:30",
+      title: "Mikro-przerwa A – regulacja",
+      desc: "Cel: reset układu nerwowego i wzroku.\n\n" +
+            "• Wstań od biurka.\n" +
+            "• 10 przysiadów lub wspięć na palce.\n" +
+            "• Krążenia barków i szyi.\n" +
+            "• Zasada 20–20–20 + 5 wolnych oddechów.\n\n" +
+            "Pro tip: Przerwa nie służy rozrywce, tylko regulacji."
+    },
+    {
+      time: "10:30–11:20",
+      title: "Praca – fokus głęboki (blok 2)",
+      desc: "Cel: domknięcie najtrudniejszego zadania.\n\n" +
+            "• Kontynuuj to samo zadanie.\n" +
+            "• Nie zmieniaj muzyki ani narzędzi.\n\n" +
+            "Pro tip: Jeśli utkniesz – zmniejsz zadanie, nie przerywaj pracy."
+    },
+    {
+      time: "11:20–11:30",
+      title: "Mikro-przerwa B – krążenie",
+      desc: "Cel: aktywacja dolnej połowy ciała.\n\n" +
+            "• Marsz w miejscu 1–2 minuty.\n" +
+            "• Krążenia kostek.\n" +
+            "• 200 ml wody.\n" +
+            "• Spojrzenie w dal przez okno.\n\n" +
+            "Pro tip: Okno zamiast telefonu."
+    },
+    {
+      time: "11:30–12:30",
+      title: "Praca – fokus średni",
+      desc: "Cel: produktywność przy mniejszym obciążeniu.\n\n" +
+            "• Poprawki, review, komunikacja.\n" +
+            "• Tryb ciemny dla oczu.\n\n" +
+            "Pro tip: Dobry moment na rzeczy „niedoskonałe”."
+    },
+    {
+      time: "12:30–13:30",
+      title: "Praca lekka",
+      desc: "Cel: zachowanie rytmu bez presji.\n\n" +
+            "• Zadania mechaniczne i powtarzalne.\n" +
+            "• Spokojne tempo.\n\n" +
+            "Pro tip: Nie oczekuj kreatywności w tym bloku."
+    },
+    {
+      time: "13:30–14:00",
+      title: "Obiad + spacer",
+      desc: "Cel: reset wzroku i krążenia.\n\n" +
+            "• Zbilansowany posiłek.\n" +
+            "• Brak ekranu.\n" +
+            "• 10–15 minut spaceru na zewnątrz.\n\n" +
+            "Pro tip: To najważniejsza przerwa całego dnia."
+    },
+    {
+      time: "14:00–15:00",
+      title: "Praca – blok lekki",
+      desc: "Cel: spokojne domykanie zadań.\n\n" +
+            "• Rutynowe czynności.\n" +
+            "• Dbanie o postawę i oddech."
+    },
+    {
+      time: "15:00–15:10",
+      title: "Mikro-przerwa C – reset kreatywny",
+      desc: "Cel: zmiana kanału poznawczego.\n\n" +
+            "• 3–5 minut luźnego szkicu LUB delikatne rozciąganie.\n" +
+            "• Bez ocen i celu.\n\n" +
+            "Pro tip: To reset, nie mini-projekt."
+    },
+    {
+      time: "15:10–16:00",
+      title: "Praca – domykanie operacyjne",
+      desc: "Cel: zamknięcie bieżących tematów.\n\n" +
+            "• Kończenie rozpoczętych zadań.\n" +
+            "• Przygotowanie do zamknięcia dnia."
+    },
+    {
+      time: "16:00–17:30",
+      title: "Zamykanie dnia pracy",
+      desc: "Cel: zamknięcie pętli poznawczych.\n\n" +
+            "• Porządkowanie plików i notatek.\n" +
+            "• Krótki plan na jutro.\n\n" +
+            "Pro tip: Dobrze zamknięty dzień = spokojniejszy wieczór."
+    },
+    {
+      time: "17:30–18:00",
+      title: "Reset przejściowy",
+      desc: "Cel: zmiana trybu z pracy na życie.\n\n" +
+            "• Spacer lub siedzenie w ciszy.\n" +
+            "• Brak ekranu.\n\n" +
+            "Pro tip: To bufor, nie strata czasu."
+    },
+    {
+      time: "18:00–19:00",
+      title: "Ruch",
+      desc: "Cel: rozładowanie napięcia fizycznego i psychicznego.\n\n" +
+            "• Kalistenika / bieganie / deskorolka.\n" +
+            "• Intensywność umiarkowana.\n\n" +
+            "Pro tip: Zakończ trening zanim pojawi się zmęczenie."
+    },
+    {
+      time: "19:00–19:30",
+      title: "Kolacja",
+      desc: "Cel: przygotowanie organizmu do regeneracji.\n\n" +
+            "• Lżejsza niż obiad.\n" +
+            "• Białko + warzywa.\n" +
+            "• Bez pośpiechu i bez ekranu."
+    },
+    {
+      time: "19:30–20:30",
+      title: "Sztuka",
+      desc: "Cel: ekspresja i odbudowa tożsamości.\n\n" +
+            "• Rysunek tuszem lub szkicowanie.\n" +
+            "• Narzędzia analogowe.\n\n" +
+            "Pro tip: Licz czas spędzony przy stole, nie liczbę prac."
+    },
+    {
+      time: "20:30–21:30",
+      title: "Relacje i sprawy życia",
+      desc: "Cel: zadbanie o relacje i codzienność bez pośpiechu.\n\n" +
+            "• Rozmowy z bliskimi, spotkania.\n" +
+            "• Zakupy, rachunki, drobne sprawy organizacyjne.\n\n" +
+            "Pro tip: Jedna załatwiona drobna sprawa = lżejsza głowa."
+    },
+    {
+      time: "21:30–23:30",
+      title: "Wyciszenie i sen",
+      desc: "Cel: regeneracja układu nerwowego.\n\n" +
+            "• Muzyka (albumy w całości), przyciemnione światło.\n" +
+            "• Brak polityki, newsów i intensywnych bodźców.\n\n" +
+            "Pro tip: Sen to okno czasowe, nie przycisk."
+    }
+  ],
+    light: [
+      {
+        time: "Całość dnia",
+        title: "Tryb ochronny",
+        desc: "Cel: ochrona układu nerwowego i utrzymanie minimalnego rytmu.\n\n" +
+              "• Woda, światło dzienne, bardzo lekki ruch.\n" +
+              "• Tylko najprostsze zadania, bez ambicji.\n" +
+              "• Częste przerwy, wcześniejsze zakończenie dnia jeśli potrzeba.\n\n" +
+              "Pro tip: Jeżeli coś wypada z planu – to nie porażka, tylko adaptacja."
+      }
+    ],
+
+    progress: [
+      {
+        time: "Wybrany blok",
+        title: "Progres kontrolowany",
+        desc: "Cel: delikatny rozwój bez przeciążenia.\n\n" +
+              "• Zwiększasz tylko jeden element dziennie:\n" +
+              "  – +15 minut fokusu w pracy LUB\n" +
+              "  – +10–15 minut ruchu LUB\n" +
+              "  – +15–30 minut sztuki.\n\n" +
+              "Pro tip: Nigdy nie zwiększaj intensywności we wszystkich obszarach jednocześnie."
+      }
+    ]
+  },
+
+  weekPlan: [
+  {
+    day: "Poniedziałek",
+    theme: "Stabilizacja i wejście w rytm",
+    work: {
+      focus: "Usługi / klienci / e-commerce",
+      intensity: "średnia",
+      notes: "Dzień stabilizujący. Bez trudnych decyzji i eksperymentów."
+    },
+    movement: {
+      type: "Bieganie / szybki spacer",
+      duration: "30–45 min",
+      intensity: "lekka–umiarkowana",
+      notes: "Regulacja układu nerwowego po weekendzie, nie trening wydolnościowy."
+    },
+    art: {
+      type: "Rysunek lekki",
+      duration: "30–45 min",
+      notes: "Szkice, rozgrzewka ręki, brak ambicji efektu."
+    }
+  },
+
+  {
+    day: "Wtorek",
+    theme: "Głębia techniczna",
+    work: {
+      focus: "Headless e-commerce, kod, architektura",
+      intensity: "wysoka",
+      notes: "Najlepszy dzień na trudne problemy inżynieryjne."
+    },
+    movement: {
+      type: "Kalistenika",
+      duration: "45–60 min",
+      intensity: "umiarkowana",
+      notes: "Stabilizacja, kontrola ruchu, brak dojazdu do zmęczenia."
+    },
+    art: {
+      type: "Szkic techniczny / studyjny",
+      duration: "20–30 min",
+      notes: "Formy, struktury, bez finalizowania."
+    }
+  },
+
+  {
+    day: "Środa",
+    theme: "Tożsamość kreatywna",
+    work: {
+      focus: "Grafika, UX, estetyka",
+      intensity: "średnia",
+      notes: "Praca wizualna, decyzje estetyczne, mniej logiki."
+    },
+    movement: {
+      type: "Mobilność / spacer",
+      duration: "30–40 min",
+      intensity: "lekka",
+      notes: "Odciążenie układu nerwowego."
+    },
+    art: {
+      type: "Rysunek głęboki",
+      duration: "60–90 min",
+      notes: "Jedna dłuższa sesja. Możliwe pierwsze prace półfinalne."
+    }
+  },
+
+  {
+    day: "Czwartek",
+    theme: "Druga fala techniczna",
+    work: {
+      focus: "Architektura, refaktoryzacja, optymalizacja",
+      intensity: "wysoka",
+      notes: "Kontynuacja trudnych tematów z wtorku."
+    },
+    movement: {
+      type: "Kalistenika",
+      duration: "45–60 min",
+      intensity: "umiarkowana",
+      notes: "Objętość zamiast intensywności."
+    },
+    art: {
+      type: "Szkic / rysunek lekki",
+      duration: "20–30 min",
+      notes: "Podtrzymanie ciągłości, bez presji."
+    }
+  },
+
+  {
+    day: "Piątek",
+    theme: "Domknięcie i odciążenie",
+    work: {
+      focus: "Usługi, poprawki, komunikacja",
+      intensity: "niska–średnia",
+      notes: "Brak nowych tematów. Zamykanie pętli."
+    },
+    movement: {
+      type: "Spacer / bardzo lekki bieg",
+      duration: "30–40 min",
+      intensity: "lekka",
+      notes: "Przygotowanie układu nerwowego na weekend."
+    },
+    art: {
+      type: "Opcjonalnie",
+      duration: "0–30 min",
+      notes: "Tylko jeśli jest potrzeba, nie z obowiązku."
+    }
+  },
+
+  {
+    day: "Sobota",
+    theme: "Eksploracja i ekspresja",
+    work: {
+      focus: "Własne projekty / nauka",
+      intensity: "lekka",
+      notes: "Tylko jeśli sprawia przyjemność."
+    },
+    movement: {
+      type: "Deskorolka / bieganie terenowe",
+      duration: "60–90 min",
+      intensity: "umiarkowana",
+      notes: "Zabawa, koordynacja, natura."
+    },
+    art: {
+      type: "Sztuka głęboka",
+      duration: "120–180 min (z przerwami)",
+      notes: "Murale, grafika, rysunek finalny. Najlepszy dzień na prace finalne."
+    }
+  },
+
+  {
+    day: "Niedziela",
+    theme: "Regeneracja i integracja",
+    work: {
+      focus: "Brak pracy",
+      intensity: "—",
+      notes: "Zakaz nadrabiania."
+    },
+    movement: {
+      type: "Spacer / mobilność",
+      duration: "30–45 min",
+      intensity: "bardzo lekka",
+      notes: "Dotlenienie, reset układu nerwowego."
+    },
+    art: {
+      type: "Muzyka / rysunek intuicyjny",
+      duration: "0–60 min",
+      notes: "Tylko jeśli naturalnie się pojawi."
+    }
+  }
+]
+
+};
+
+
+</script>
+<style>
+:root {
+  --bg: #0f1115;
+  --panel: #161a22;
+  --text: #e6e6e6;
+  --muted: #9aa0aa;
+  --accent: #5da9ff;
+  --border: #2a2f3a;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+h1, h2 {
+  margin: 24px 0 12px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.95em;
+  margin-bottom: 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+button {
+  flex: 1;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.time {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.title {
+  font-weight: bold;
+  margin: 6px 0 4px;
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 0.95em;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ramowy plan dnia roboczego</h1>
+
+<p class="note">
+Wybierz tryb dnia zgodnie z samopoczuciem.
+Cel dnia: ochrona układu nerwowego, krązenia i wzroku przy 8h pracy przy komputerze, z zachowaniem przestrzeni na ruch, sztukę, relacje i spokój. Zasada nadrzedna: <b>przerwy = regulacja, bloki = dzialanie</b>. 70 procent realizacji to sukces.
+</p>
+
+<div class="controls">
+  <button id="btn-base" onclick="setMode('base')">Bazowy</button>
+  <button id="btn-light" onclick="setMode('light')">Lekki</button>
+  <button id="btn-progress" onclick="setMode('progress')">Progresyjny</button>
+</div>
+
+<div id="dayPlan"></div>
+
+<h2>Plan tygodnia</h2>
+<div id="weekPlan"></div>
+
+<script>
+
+
+/* ===================== LOGIC ===================== */
+
+const MODE_KEY = "systemDniaMode";
+let mode = localStorage.getItem(MODE_KEY) || "base";
+
+function setMode(newMode) {
+  mode = newMode;
+  localStorage.setItem(MODE_KEY, mode);
+  render();
+}
+
+function render() {
+  /* ===== ACTIVE MODE BUTTON ===== */
+  document.querySelectorAll(".controls button").forEach(b =>
+    b.classList.remove("active")
+  );
+  document.getElementById("btn-" + mode).classList.add("active");
+
+  /* ===== DAY PLAN ===== */
+  const day = document.getElementById("dayPlan");
+  day.innerHTML = "";
+
+  DATA.dayPlans[mode].forEach(item => {
+    day.innerHTML += `
+      <div class="card">
+        <div class="time">${item.time}</div>
+        <div class="title">${item.title}</div>
+        <div class="desc">${item.desc.replace(/\n/g, "<br>")}</div>
+      </div>
+    `;
+  });
+
+  /* ===== WEEK PLAN ===== */
+  const week = document.getElementById("weekPlan");
+  week.innerHTML = "";
+
+  DATA.weekPlan.forEach(dayItem => {
+    week.innerHTML += `
+      <div class="card">
+        <div class="title">${dayItem.day}</div>
+        <div class="desc"><em>${dayItem.theme}</em></div>
+
+        <div class="desc">
+          <strong>Praca:</strong><br>
+          • ${dayItem.work.focus}<br>
+          • Intensywność: ${dayItem.work.intensity}<br>
+          ${dayItem.work.notes ? "• " + dayItem.work.notes : ""}
+        </div>
+
+        <div class="desc">
+          <strong>Ruch:</strong><br>
+          • ${dayItem.movement.type}<br>
+          • Czas: ${dayItem.movement.duration}<br>
+          • Intensywność: ${dayItem.movement.intensity}<br>
+          ${dayItem.movement.notes ? "• " + dayItem.movement.notes : ""}
+        </div>
+
+        <div class="desc">
+          <strong>Sztuka:</strong><br>
+          • ${dayItem.art.type}<br>
+          • Czas: ${dayItem.art.duration}<br>
+          ${dayItem.art.notes ? "• " + dayItem.art.notes : ""}
+        </div>
+      </div>
+    `;
+  });
+}
+
+
+render();
+</script>
+
+</body>
+</html>
