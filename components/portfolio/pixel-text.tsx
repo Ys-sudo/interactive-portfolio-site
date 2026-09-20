@@ -12,16 +12,12 @@ function buildOverlay(text: string, tick: number) {
     .map(({ index }) => index)
 
   const activeIndex = animatedIndexes[tick % Math.max(animatedIndexes.length, 1)]
-  const nextIndex = animatedIndexes[(tick + 1) % Math.max(animatedIndexes.length, 1)]
-
   return text
     .split("")
     .map((char, index) => {
       if (char === " ") return " "
       if (/[./:@_-]/.test(char)) return char
       if (index === activeIndex) return PIXEL_CHARS[tick % PIXEL_CHARS.length]
-      if (index === nextIndex) return PIXEL_CHARS[(tick + index) % PIXEL_CHARS.length]
-
       return char
     })
     .join("")
@@ -73,7 +69,7 @@ export function PixelText({
 
   return (
     <span className={`relative inline-block ${className}`}>
-      <span className="opacity-20" aria-hidden="true">
+      <span className="opacity-0" aria-hidden="true">
         {text}
       </span>
       <span className="absolute inset-0">
@@ -83,7 +79,7 @@ export function PixelText({
       </span>
       <span
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-0 translate-x-[1px] translate-y-[-1px] opacity-35 ${overlayClassName}`}
+        className={`pointer-events-none absolute inset-0 translate-x-[1px] translate-y-[-1px] opacity-20 ${overlayClassName}`}
       >
         {overlay}
       </span>

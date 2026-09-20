@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { SectionHeader } from "./section-header";
 import { TiltCard } from "./tilt-card";
-import { PixelText } from "./pixel-text";
 import { PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio";
 
 const projects = [
@@ -165,17 +164,13 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                     className="block min-w-0 text-lg font-semibold text-foreground hover:text-primary transition-colors"
                   >
                     <span className="inline-flex min-w-0 items-center gap-2">
-                      <span className="truncate">
-                        <PixelText text={project.title} overlayClassName="text-primary/20" />
-                      </span>
+                      <span className="truncate">{project.title}</span>
                       <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </span>
                   </a>
                 ) : (
                   <div className="text-lg font-semibold text-foreground">
-                    <span className="block truncate">
-                      <PixelText text={project.title} overlayClassName="text-primary/20" />
-                    </span>
+                    <span className="block truncate">{project.title}</span>
                   </div>
                 )}
                 <p className="font-mono text-xs text-muted-foreground mt-0.5">

@@ -15,6 +15,21 @@
   .scrollbars-none::-webkit-scrollbar {
     display: none;
   }
+
+  @keyframes lotus-y-spin {
+    0%,
+    100% {
+      transform: perspective(900px) rotateY(-14deg);
+    }
+    50% {
+      transform: perspective(900px) rotateY(14deg);
+    }
+  }
+
+  .lotus-y-spin {
+    animation: lotus-y-spin 7s ease-in-out infinite;
+    transform-origin: center;
+  }
 }
 
 @layer base {

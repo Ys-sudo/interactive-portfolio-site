@@ -4,7 +4,6 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Briefcase } from "lucide-react"
 import { SectionHeader } from "./section-header"
 import { TiltCard } from "./tilt-card"
-import { PixelText } from "./pixel-text"
 
 const experiences = [
   {
@@ -129,12 +128,8 @@ function ExperienceCard({
         <TiltCard className="rounded-lg border border-border bg-card/90 p-6 shadow-[0_0_30px_hsl(var(--primary)/0.04)] hover:border-primary/30 transition-colors duration-300">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-3">
             <div>
-              <h3 className="text-lg font-semibold text-foreground">
-                <PixelText text={exp.title} overlayClassName="text-primary/20" />
-              </h3>
-              <p className="text-primary font-medium">
-                <PixelText text={exp.company} overlayClassName="text-primary/35" />
-              </p>
+              <h3 className="text-lg font-semibold text-foreground">{exp.title}</h3>
+              <p className="text-primary font-medium">{exp.company}</p>
             </div>
             <div className="text-right">
               <p className="font-mono text-xs text-muted-foreground">

@@ -28,8 +28,8 @@ export function Footer() {
           <p className="font-mono text-xs text-muted-foreground">
             <PixelText
               text="© 2026 George Lazaridis / Coded Letter"
-              speed={170}
-              overlayClassName="text-primary/30"
+              speed={240}
+              overlayClassName="text-primary/24"
             />
           </p>
           <a
@@ -38,8 +38,8 @@ export function Footer() {
           >
             <PixelText
               text={PORTFOLIO_EMAIL}
-              speed={170}
-              overlayClassName="text-primary/35"
+              speed={240}
+              overlayClassName="text-primary/24"
             />
           </a>
           <div className="mt-3 flex items-center gap-4 flex-wrap justify-center sm:justify-start">
@@ -54,8 +54,8 @@ export function Footer() {
                 >
                   <PixelText
                     text={link.label}
-                    speed={170}
-                    overlayClassName="text-primary/35"
+                    speed={240}
+                    overlayClassName="text-primary/24"
                   />
                 </a>
               </div>

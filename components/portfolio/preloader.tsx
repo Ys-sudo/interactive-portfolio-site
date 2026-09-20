@@ -153,13 +153,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                     return (
                       <span
                         key={`${lineIndex}-${index}`}
-                        className={
-                          isRevealed
-                            ? "opacity-100"
-                            : isActivePixel
-                              ? "opacity-100"
-                              : "opacity-35"
-                        }
+                        className={isRevealed || isActivePixel ? "opacity-100" : "opacity-0"}
                       >
                         {char === " "
                           ? " "

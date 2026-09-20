@@ -3,6 +3,7 @@
 import type { ReactNode } from "react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useTextScramble } from "@/hooks/use-text-scramble"
+import { PixelText } from "./pixel-text"
 
 interface SectionHeaderProps {
   title: string
@@ -23,7 +24,11 @@ export function SectionHeader({ title, icon }: SectionHeaderProps) {
               : "opacity-0 -translate-x-6"
           }`}
         >
-          {isVisible ? scrambledTitle : title}
+          {isVisible ? (
+            <PixelText text={scrambledTitle} speed={220} overlayClassName="text-primary/30" />
+          ) : (
+            title
+          )}
         </p>
         <div
           className={`mt-4 text-muted-foreground transition-all duration-600 delay-200 ${
