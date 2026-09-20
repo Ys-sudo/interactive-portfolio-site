@@ -77,21 +77,24 @@ export function HeroSection() {
               </div>
             </div>
             <h1
-              className={`mb-10 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-balance leading-[1] transition-all duration-700 delay-100 ${
+              className={`mb-12 text-[clamp(3.75rem,11vw,8rem)] font-bold tracking-[-0.05em] leading-[0.9] transition-all duration-700 delay-100 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <PixelText
-                text="George"
-                speed={340}
-                overlayClassName="text-primary/24"
-              />
-              <br />
-              <span className="text-primary">
+              <span className="block whitespace-nowrap">
+                <PixelText
+                  text="George"
+                  speed={340}
+                  overlayClassName="text-primary/24"
+                  className="whitespace-nowrap"
+                />
+              </span>
+              <span className="mt-2 block whitespace-nowrap text-primary md:mt-3">
                 <PixelText
                   text="Lazaridis"
                   speed={340}
                   overlayClassName="text-primary/30"
+                  className="whitespace-nowrap"
                 />
               </span>
             </h1>

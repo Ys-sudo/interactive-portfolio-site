@@ -14,7 +14,15 @@ const galleryImages = PORTFOLIO_GALLERY_IMAGES.map((src, index) => ({
   rotation:
     index % 3 === 0 ? "-rotate-1" : index % 3 === 1 ? "rotate-[1.5deg]" : "rotate-0",
   aspect:
-    index % 3 === 0 ? "aspect-[4/5]" : index % 3 === 1 ? "aspect-square" : "aspect-[5/4]",
+    index % 5 === 0
+      ? "aspect-[4/5]"
+      : index % 5 === 1
+        ? "aspect-[5/4]"
+        : index % 5 === 2
+          ? "aspect-[3/4]"
+          : index % 5 === 3
+            ? "aspect-square"
+            : "aspect-[16/11]",
 }))
 
 export function GallerySection() {
@@ -43,16 +51,18 @@ export function GallerySection() {
               </pre>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="columns-1 gap-5 sm:columns-2 xl:columns-3">
               {galleryImages.map((image, index) => (
                 <div
                   key={image.src}
-                  className={`transition-all duration-700 ${
+                  className={`mb-5 break-inside-avoid transition-all duration-700 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
                   style={{ transitionDelay: `${index * 80}ms` }}
                 >
-                  <TiltCard className={`overflow-hidden rounded-[1.75rem] border border-border bg-card/80 ${image.rotation}`}>
+                  <TiltCard
+                    className={`overflow-hidden rounded-[1.75rem] border border-border bg-card/80 ${image.rotation}`}
+                  >
                     <div className={`relative ${image.aspect}`}>
                       <PortfolioImage
                         src={image.src}
