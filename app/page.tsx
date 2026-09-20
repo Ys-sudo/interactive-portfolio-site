@@ -17,7 +17,6 @@ import { ScrollProgress } from "@/components/portfolio/scroll-progress"
 import { ParallaxLayer } from "@/components/portfolio/parallax-layer"
 import { TerminalSeparator } from "@/components/portfolio/terminal-separator"
 import { LotusSeparator } from "@/components/portfolio/lotus-separator"
-import { MotionSection } from "@/components/portfolio/motion-section"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -61,7 +60,6 @@ export default function Page() {
           <SkillsSection />
           <EducationSection />
           <LotusSeparator />
-          <MotionSection />
           <ContactSection />
         </main>
         <Footer />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Calendar, Github, Linkedin, MessageCircle, FileText } from "lucide-react";
+import { Download, Calendar, Github, Linkedin, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_PROFILE_LINKS } from "@/lib/portfolio";
 
@@ -57,6 +57,15 @@ export function Navigation() {
         >
           GL
         </a>
+        <a
+          href="/Georgios-Lazaridis-CV.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary md:hidden"
+        >
+          HTML CV <span aria-hidden="true">↗</span>
+          <span className="sr-only"> (opens in new tab)</span>
+        </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
             <li key={item.href}>
@@ -73,6 +82,17 @@ export function Navigation() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="/Georgios-Lazaridis-CV.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
+            >
+              HTML CV <span aria-hidden="true">↗</span>
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          </li>
         </ul>
         <div className="hidden lg:flex items-center gap-3">
           {NAV_PROFILE_LINKS.map((link) => {
@@ -114,15 +134,6 @@ export function Navigation() {
           >
             <Download className="h-3.5 w-3.5" />
             Download CV
-          </a>
-          <a
-            href="/Georgios-Lazaridis-CV.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-xs font-mono text-primary transition-all hover:bg-primary hover:text-primary-foreground"
-          >
-            <FileText className="h-3.5 w-3.5" />
-            HTML CV
           </a>
         </div>
       </div>
