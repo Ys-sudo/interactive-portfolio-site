@@ -77,29 +77,29 @@ export function HeroSection() {
               </div>
             </div>
             <h1
-              className={`mb-12 text-[clamp(3.75rem,11vw,8rem)] font-bold tracking-[-0.05em] leading-[0.9] transition-all duration-700 delay-100 ${
+              className={`mb-14 text-[clamp(3.1rem,9vw,6.6rem)] font-bold tracking-[-0.045em] leading-[0.84] transition-all duration-1000 delay-150 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
               <span className="block whitespace-nowrap">
                 <PixelText
                   text="George"
-                  speed={340}
+                  speed={430}
                   overlayClassName="text-primary/24"
                   className="whitespace-nowrap"
                 />
               </span>
-              <span className="mt-2 block whitespace-nowrap text-primary md:mt-3">
+              <span className="mt-3 block whitespace-nowrap text-primary md:mt-4">
                 <PixelText
                   text="Lazaridis"
-                  speed={340}
+                  speed={430}
                   overlayClassName="text-primary/30"
                   className="whitespace-nowrap"
                 />
               </span>
             </h1>
             <p
-              className={`max-w-xl text-muted-foreground leading-relaxed text-lg transition-all duration-700 delay-200 ${
+              className={`max-w-xl text-muted-foreground leading-relaxed text-base md:text-lg transition-all duration-1000 delay-300 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
@@ -108,7 +108,7 @@ export function HeroSection() {
               blends design sensitivity, engineering depth, SEO, and long-term technical ownership.
             </p>
             <div
-              className={`mt-8 flex flex-wrap items-center gap-6 text-sm text-muted-foreground transition-all duration-700 delay-300 ${
+              className={`mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground transition-all duration-1000 delay-[450ms] ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
@@ -134,7 +134,7 @@ export function HeroSection() {
               </span>
             </div>
             <div
-              className={`mt-10 transition-all duration-700 delay-[400ms] ${
+              className={`mt-12 transition-all duration-1000 delay-[600ms] ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >

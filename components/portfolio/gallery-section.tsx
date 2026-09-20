@@ -1,6 +1,7 @@
 "use client"
 
-import { Image as ImageIcon } from "lucide-react"
+import { ChevronLeft, ChevronRight, Image as ImageIcon, X } from "lucide-react"
+import { useEffect, useState } from "react"
 
 import { PLACEHOLDER_NEON_PHOTOS, PORTFOLIO_GALLERY_IMAGES } from "@/lib/portfolio"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
@@ -27,6 +28,30 @@ const galleryImages = PORTFOLIO_GALLERY_IMAGES.map((src, index) => ({
 
 export function GallerySection() {
   const { ref, isVisible } = useScrollAnimation(0.1)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
+  const closeLightbox = () => setActiveIndex(null)
+  const showPrev = () =>
+    setActiveIndex((current) =>
+      current === null ? current : (current + galleryImages.length - 1) % galleryImages.length,
+    )
+  const showNext = () =>
+    setActiveIndex((current) =>
+      current === null ? current : (current + 1) % galleryImages.length,
+    )
+
+  useEffect(() => {
+    if (activeIndex === null) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeLightbox()
+      if (event.key === "ArrowLeft") showPrev()
+      if (event.key === "ArrowRight") showNext()
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [activeIndex])
 
   return (
     <section id="gallery" className="py-32 relative">
@@ -63,7 +88,11 @@ export function GallerySection() {
                   <TiltCard
                     className={`overflow-hidden rounded-[1.75rem] border border-border bg-card/80 ${image.rotation}`}
                   >
-                    <div className={`relative ${image.aspect}`}>
+                    <button
+                      type="button"
+                      onClick={() => setActiveIndex(index)}
+                      className={`relative block w-full text-left ${image.aspect}`}
+                    >
                       <PortfolioImage
                         src={image.src}
                         alt={image.alt}
@@ -75,7 +104,7 @@ export function GallerySection() {
                       <div className="absolute bottom-4 left-4 rounded-full border border-primary/20 bg-background/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-primary/70 backdrop-blur">
                         {image.src.split("/").pop()?.replace(/\.[^.]+$/, "")}
                       </div>
-                    </div>
+                    </button>
                   </TiltCard>
                 </div>
               ))}
@@ -83,6 +112,57 @@ export function GallerySection() {
           </div>
         </div>
       </div>
+      {activeIndex !== null && (
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center bg-background/92 p-4 backdrop-blur-md"
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            aria-label="Close gallery lightbox"
+            onClick={closeLightbox}
+            className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:text-primary"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Previous gallery image"
+            onClick={(event) => {
+              event.stopPropagation()
+              showPrev()
+            }}
+            className="absolute left-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:text-primary"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next gallery image"
+            onClick={(event) => {
+              event.stopPropagation()
+              showNext()
+            }}
+            className="absolute right-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card/80 text-muted-foreground transition-colors hover:text-primary"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+          <div
+            className="relative w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[2rem] border border-border bg-card">
+              <PortfolioImage
+                src={galleryImages[activeIndex].src}
+                alt={galleryImages[activeIndex].alt}
+                fallbackSrc={PLACEHOLDER_NEON_PHOTOS.projects}
+                className="h-full w-full object-contain bg-background"
+                sizes="100vw"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
