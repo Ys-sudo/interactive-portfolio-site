@@ -7,6 +7,7 @@ import {
   Phone,
   MapPin,
   FileDown,
+  FileText,
   Calendar,
 } from "lucide-react";
 import { ParticleNetwork } from "./particle-network";
@@ -101,7 +102,16 @@ export function HeroSection() {
                   className="inline-flex items-center gap-2.5 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <FileDown className="h-4 w-4" />
-                  View Full CV
+                  CV PDF
+                </a>
+                <a
+                  href="/Georgios-Lazaridis-CV.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-md border border-primary px-6 py-3 text-sm font-medium text-primary transition-all hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <FileText className="h-4 w-4" />
+                  CV HTML
                 </a>
                 <a
                   href="/schedule"

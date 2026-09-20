@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Calendar } from "lucide-react";
+import { Download, Calendar, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -87,7 +87,16 @@ export function Navigation() {
             className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-xs font-mono text-primary transition-all hover:bg-primary hover:text-primary-foreground"
           >
             <Download className="h-3.5 w-3.5" />
-            Download CV
+            CV PDF
+          </a>
+          <a
+            href="/Georgios-Lazaridis-CV.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-xs font-mono text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            CV HTML
           </a>
           <a
             href="mailto:glazari27@gmail.com"
