@@ -184,6 +184,7 @@ export function HeroSection() {
                   alt="Neon-lit portrait placeholder"
                   fallbackSrc={PLACEHOLDER_NEON_PHOTOS.hero}
                   className="h-full w-full object-cover"
+                  sizes="320px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/15 to-transparent" />
                 <div className="absolute left-4 top-4 rounded-xl border border-primary/20 bg-background/70 px-3 py-2 backdrop-blur">

@@ -1,7 +1,7 @@
 import React from "react"
-import type { Metadata } from 'next'
+import type { Metadata } from "next"
 
-import './globals.css'
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: 'Georgios Lazaridis | Full-Stack Web Developer',

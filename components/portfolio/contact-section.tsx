@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useTextScramble } from "@/hooks/use-text-scramble";
 import { Mail, MessageCircle, MapPin, ArrowUpRight } from "lucide-react";
@@ -37,10 +38,12 @@ export function ContactSection() {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                <div className="aspect-[4/5]">
-                  <img
+                <div className="relative aspect-[4/5]">
+                  <Image
                     src={PLACEHOLDER_NEON_PHOTOS.contact}
                     alt="Neon workspace placeholder for contact section"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 200px"
                     className="h-full w-full object-cover"
                   />
                 </div>

@@ -59,6 +59,7 @@ export function GallerySection() {
                         alt={image.alt}
                         fallbackSrc={PLACEHOLDER_NEON_PHOTOS.projects}
                         className="h-full w-full object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 rounded-full border border-primary/20 bg-background/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-primary/70 backdrop-blur">

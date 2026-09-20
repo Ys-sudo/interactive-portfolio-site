@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import {
@@ -361,10 +362,12 @@ export function ProjectsSection() {
               icon={<FolderOpen className="h-5 w-5" />}
             />
             <div className="overflow-hidden rounded-[2rem] border border-border bg-card">
-              <div className="aspect-[4/3]">
-                <img
+              <div className="relative aspect-[4/3]">
+                <Image
                   src={PLACEHOLDER_NEON_PHOTOS.projects}
                   alt="Neon workspace placeholder for projects section"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 20vw"
                   className="h-full w-full object-cover"
                 />
               </div>

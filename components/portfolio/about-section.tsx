@@ -95,9 +95,11 @@ export function AboutSection() {
                 }`}
               >
                 <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card aspect-square">
-                  <img
+                  <Image
                     src={PLACEHOLDER_NEON_PHOTOS.about}
                     alt="Neon city placeholder for about section"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 200px"
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />

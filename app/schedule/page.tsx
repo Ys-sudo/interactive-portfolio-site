@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Navigation } from "@/components/portfolio/navigation";
 import { Footer } from "@/components/portfolio/footer";
@@ -40,9 +41,11 @@ export default function SchedulePage() {
           <section className="mb-16">
             <div className="mb-8 max-w-3xl overflow-hidden rounded-[2rem] border border-border bg-card/70">
               <div className="aspect-[16/7] relative">
-                <img
+                <Image
                   src={PLACEHOLDER_NEON_PHOTOS.schedule}
                   alt="Neon workspace placeholder for schedule page"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 896px"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
