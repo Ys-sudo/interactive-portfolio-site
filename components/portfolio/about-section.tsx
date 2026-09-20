@@ -175,6 +175,7 @@ export function AboutSection() {
                     loop
                     playsInline
                     preload="metadata"
+                    controls
                   >
                     <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
                     Your browser does not support the motion study video.
