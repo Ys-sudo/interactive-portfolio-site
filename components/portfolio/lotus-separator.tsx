@@ -8,7 +8,7 @@ export function LotusSeparator() {
           <div className="pointer-events-none absolute inset-0">
             <video
               className="h-full w-full object-cover"
-              aria-label="Short screen capture showing George's process in motion"
+              aria-hidden="true"
               autoPlay
               muted
               loop
