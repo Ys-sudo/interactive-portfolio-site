@@ -81,7 +81,7 @@ export function Navigation() {
               aria-label="HTML CV (opens in new tab)"
               className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
             >
-              HTML CV
+              HTML CV ↗
             </a>
           </li>
         </ul>
