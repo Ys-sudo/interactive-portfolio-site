@@ -5,6 +5,7 @@ import { Navigation } from "@/components/portfolio/navigation"
 import { HeroSection } from "@/components/portfolio/hero-section"
 import { AboutSection } from "@/components/portfolio/about-section"
 import { ExperienceSection } from "@/components/portfolio/experience-section"
+import { GallerySection } from "@/components/portfolio/gallery-section"
 import { ProjectsSection } from "@/components/portfolio/projects-section"
 import { SkillsSection } from "@/components/portfolio/skills-section"
 import { EducationSection } from "@/components/portfolio/education-section"
@@ -53,6 +54,7 @@ export default function Page() {
           <HeroSection />
           <AboutSection />
           <ExperienceSection />
+          <GallerySection />
           <ProjectsSection />
           <TerminalSeparator />
           <SkillsSection />

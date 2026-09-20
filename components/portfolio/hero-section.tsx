@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { ArrowDown, Mail, MapPin, FileDown, Calendar, MessageCircle } from "lucide-react";
 import { ParticleNetwork } from "./particle-network";
 import { PixelText } from "./pixel-text";
+import { PortfolioImage } from "./portfolio-image";
 import {
+  PORTFOLIO_GATHERED_IMAGES,
   PLACEHOLDER_NEON_PHOTOS,
   PORTFOLIO_EMAIL,
   PORTFOLIO_LOCATION,
@@ -177,9 +179,10 @@ export function HeroSection() {
             <div className="relative w-[320px]">
               <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-primary/10 blur-2xl" />
               <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-2xl shadow-primary/10">
-                <img
-                  src={PLACEHOLDER_NEON_PHOTOS.hero}
+                <PortfolioImage
+                  basename={PORTFOLIO_GATHERED_IMAGES.hero}
                   alt="Neon-lit portrait placeholder"
+                  fallbackSrc={PLACEHOLDER_NEON_PHOTOS.hero}
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/15 to-transparent" />

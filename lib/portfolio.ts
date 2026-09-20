@@ -25,3 +25,10 @@ export const PLACEHOLDER_NEON_PHOTOS = {
   schedule:
     "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
 } as const;
+
+export const PORTFOLIO_LOCAL_IMAGE_DIR = "/portfolio-images";
+
+export const PORTFOLIO_GATHERED_IMAGES = {
+  hero: "9085",
+  gallery: ["soldia", "6015", "17597", "5906", "7001", "6097"],
+} as const;
