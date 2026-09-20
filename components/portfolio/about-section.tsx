@@ -45,6 +45,20 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 export function AboutSection() {
   const { ref, isVisible } = useScrollAnimation(0.2)
   const scrambledTitle = useTextScramble("About", isVisible, 25)
+  const hobbies = [
+    "Calisthenics",
+    "Skateboarding",
+    "Graphic Design",
+    "Robotics",
+    "Automation",
+    "Art",
+    "Painting",
+    "Drawing",
+    "Vinyls",
+    "Mixing Music",
+    "Photography",
+    "Traveling",
+  ]
 
   return (
     <section id="about" className="py-32 relative">
@@ -95,6 +109,34 @@ export function AboutSection() {
                 "I work with agencies, studios, and direct clients to design, ship, and maintain fast digital products—from WooCommerce storefronts and Gatsby or Next.js sites to automation, prototypes, and creative tooling. My focus is sustainable architecture, SEO, accessibility, and practical long-term ownership."
               }
             </p>
+            <p
+              className={`mt-8 text-lg leading-relaxed text-muted-foreground transition-all duration-700 delay-300 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              {
+                "I learned coding on my own, starting with SoloLearn where I completed 15+ comprehensive courses across PHP, Python, C#, JavaScript, and more. Back when I was still studying, I was also teaching coding online using the Glitch multiuser editor, and my journey really began around the age of 12 or 13 when I wrote automation and hack scripts for a popular MMORPG."
+              }
+            </p>
+            <div
+              className={`mt-10 transition-all duration-700 delay-[350ms] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+            >
+              <p className="font-mono text-xs uppercase tracking-[0.24em] text-primary/80">
+                Hobbies
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {hobbies.map((hobby) => (
+                  <span
+                    key={hobby}
+                    className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-mono text-muted-foreground"
+                  >
+                    {hobby}
+                  </span>
+                ))}
+              </div>
+            </div>
             <div
               className={`mt-12 grid grid-cols-3 gap-8 transition-all duration-700 delay-400 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
