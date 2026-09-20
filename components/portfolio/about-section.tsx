@@ -10,11 +10,13 @@ const mediaFrames = [
     src: "/DSCF6090.jpeg",
     alt: "George working in a sunlit studio setting",
     className: "md:col-span-2 md:row-span-2",
+    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 66vw, 44vw",
   },
   {
     src: "/DSCF7001.jpeg",
     alt: "Portrait detail from George's editorial photo set",
     className: "",
+    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 22vw",
   },
 ]
 
@@ -158,7 +160,7 @@ export function AboutSection() {
                       src={frame.src}
                       alt={frame.alt}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes={frame.sizes}
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
@@ -167,13 +169,15 @@ export function AboutSection() {
                 <div className="group relative overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
                   <video
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    aria-label="Short screen capture showing George's process in motion"
                     autoPlay
                     muted
                     loop
                     playsInline
                     preload="metadata"
                   >
-                    <source src="/Screen Recording 2025-03-23 at 12.48.25.mov" type="video/quicktime" />
+                    <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
+                    Your browser does not support the motion study video.
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-4">
