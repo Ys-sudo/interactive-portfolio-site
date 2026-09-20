@@ -49,7 +49,7 @@ export function AboutSection() {
   return (
     <section id="about" className="py-32 relative">
       <div className="mx-auto max-w-6xl px-6" ref={ref}>
-        <div className="grid lg:grid-cols-[200px_minmax(0,320px)_1fr] gap-12 items-start">
+        <div className="grid lg:grid-cols-[200px_1fr] gap-12 items-start">
           <div>
             <div className="lg:sticky lg:top-24">
               <p
@@ -59,21 +59,20 @@ export function AboutSection() {
               >
                 {isVisible ? scrambledTitle : "About"}
               </p>
-            </div>
-          </div>
-
-          <div
-            className={`transition-all duration-700 delay-100 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card aspect-square">
-              <img
-                src={PLACEHOLDER_NEON_PHOTOS.about}
-                alt="Neon city placeholder for about section"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+              <div
+                className={`mt-8 transition-all duration-700 delay-100 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                }`}
+              >
+                <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card aspect-square">
+                  <img
+                    src={PLACEHOLDER_NEON_PHOTOS.about}
+                    alt="Neon city placeholder for about section"
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/10 to-transparent" />
+                </div>
+              </div>
             </div>
           </div>
 

@@ -42,6 +42,7 @@ const projects = [
       { label: "aqua-bar.pl", url: "https://aqua-bar.pl" },
       { label: "polskiewafle.pl", url: "https://polskiewafle.pl" },
       { label: "camea.pl", url: "https://camea.pl" },
+      { label: "and more (20+)..." },
     ],
   },
   {
@@ -54,10 +55,13 @@ const projects = [
     highlight: "6-year collaboration",
     supportingLabel: "Selected client work",
     supporting: [
+      { label: "artopen.pl", url: "https://artopen.pl" },
+      { label: "sklep.artopen.pl", url: "https://sklep.artopen.pl" },
+      { label: "kreator-kalendarzy.pl", url: "https://kreator-kalendarzy.pl" },
       { label: "bekuplast.com.pl", url: "https://bekuplast.com.pl" },
       { label: "DeLaval" },
       { label: "Rexer" },
-      { label: "and more" },
+      { label: "and more (15+)..." },
     ],
   },
   {
@@ -81,15 +85,15 @@ const projects = [
     url: "https://web.archive.org/web/20250913002826/https://swiezastrona.pl/",
     period: "Archive / 1-year collaboration",
     description:
-      "Archive of a studio collaboration focused on custom WordPress and WooCommerce builds, plugins, tailored themes, and delivery for both mid-market and larger corporate clients.",
-    tags: ["WordPress", "WooCommerce", "B2B/B2C", "Custom Plugins"],
+      "Archive of a studio collaboration focused on custom WordPress and WooCommerce builds, plugins, tailored themes, a Next.js helpdesk platform, shell scripting, Python automation, server administration, and cybersecurity-oriented technical support.",
+    tags: ["WordPress", "Next.js", "Python", "Server Admin"],
     highlight: "Agency collaboration",
     supportingLabel: "Selected brands",
     supporting: [
       { label: "organicseries.pl", url: "https://organicseries.pl" },
       { label: "bbg.pl", url: "https://bbg.pl" },
       { label: "triplesofficial.pl", url: "https://triplesofficial.pl" },
-      { label: "and more" },
+      { label: "and more (20+)..." },
     ],
   },
   {
@@ -97,11 +101,12 @@ const projects = [
     url: "https://e-multicontent.pl",
     period: "2018 — Present",
     description:
-      "Part of a long-running B2B collaboration for IV Group, covering WordPress, React, headless builds, and practical publishing systems designed to reduce operating costs and improve agility.",
-    tags: ["WordPress", "React", "Headless", "B2B"],
+      "Part of a long-running B2B collaboration for IV Group, covering WordPress delivery, Gatsby and Decap CMS builds, Elementor-based publishing, and practical web systems designed to reduce operating costs and improve agility.",
+    tags: ["WordPress", "Gatsby", "Decap CMS", "Elementor"],
     highlight: "IV Group collaboration",
     supportingLabel: "Related links",
     supporting: [
+      { label: "e-multicontent.pl", url: "https://e-multicontent.pl" },
       { label: "let-pr.com", url: "https://let-pr.com" },
       { label: "iv-group.pl", url: "https://iv-group.pl" },
     ],
@@ -111,15 +116,16 @@ const projects = [
     url: "https://github.com/ys-sudo",
     period: "2018 — Present",
     description:
-      "Independent client delivery across WooCommerce, legacy CMS implementations, performance optimization, and headless builds developed alongside long-term agency and studio collaborations.",
+      "Independent client delivery across WooCommerce, legacy CMS implementations, performance optimization including Ruby/Jekyll work for Logicaltrust, and headless builds developed alongside long-term agency and studio collaborations.",
     tags: ["Freelance", "WooCommerce", "Performance", "Headless"],
     highlight: "Independent delivery",
     supportingLabel: "Selected work",
     supporting: [
       { label: "powerenergy.com.pl", url: "https://powerenergy.com.pl" },
       { label: "axel-travel.pl" },
-      { label: "Logicaltrust" },
+      { label: "Logicaltrust.net (Ruby / Jekyll)", url: "https://logicaltrust.net" },
       { label: "3dprintingstl.com", url: "https://3dprintingstl.com" },
+      { label: "and more (20+)..." },
     ],
   },
   {
@@ -350,13 +356,15 @@ export function ProjectsSection() {
           />
 
           <div className="relative min-w-0">
-            <div className="mx-auto mb-8 max-w-md overflow-hidden rounded-[2rem] border border-border bg-card">
+            <div className="mb-8 flex justify-end">
+              <div className="w-full max-w-md overflow-hidden rounded-[2rem] border border-border bg-card">
               <div className="aspect-[4/3]">
                 <img
                   src={PLACEHOLDER_NEON_PHOTOS.projects}
                   alt="Neon workspace placeholder above projects"
                   className="h-full w-full object-cover"
                 />
+              </div>
               </div>
             </div>
 
