@@ -17,7 +17,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [showCaret, setShowCaret] = useState(true);
   const [pixelFrame, setPixelFrame] = useState(0);
 
-  const pixelChars = ["█", "▓", "▒", "░"];
+  const pixelChars = ["▓", "▒", "░"];
 
   // Caret blink
   useEffect(() => {
@@ -26,7 +26,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => setPixelFrame((frame) => frame + 1), 120);
+    const interval = setInterval(() => setPixelFrame((frame) => frame + 1), 180);
     return () => clearInterval(interval);
   }, []);
 

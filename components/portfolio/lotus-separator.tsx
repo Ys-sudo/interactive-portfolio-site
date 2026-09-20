@@ -12,43 +12,43 @@ export function LotusSeparator() {
           >
             <g className="origin-center lotus-y-spin [transform-box:fill-box]">
               <path
-                d="M100 34C89 51 84 74 86 108C96 102 102 91 105 73C107 57 106 44 100 34Z"
+                d="M100 34C91 48 87 69 89 102C97 95 102 85 104 69C106 56 105 44 100 34Z"
                 fill="none"
                 stroke="hsl(var(--primary) / 0.74)"
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
-                d="M72 70C56 82 47 99 44 124C61 122 76 115 88 101C97 90 100 80 97 67"
+                d="M71 69C57 79 48 95 45 118C61 117 74 111 85 99C93 89 96 79 94 68"
                 fill="none"
                 stroke="hsl(var(--primary) / 0.64)"
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
               <path
-                d="M128 70C144 82 153 99 156 124C139 122 124 115 112 101C103 90 100 80 103 67"
+                d="M129 69C143 79 152 95 155 118C139 117 126 111 115 99C107 89 104 79 106 68"
                 fill="none"
                 stroke="hsl(var(--primary) / 0.64)"
-                strokeWidth="2.2"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
             </g>
             <path
-              d="M100 78V146"
+              d="M100 80V146"
               fill="none"
               stroke="hsl(var(--primary) / 0.34)"
-              strokeWidth="1.6"
+              strokeWidth="1.4"
               strokeDasharray="5 6"
               className="animate-[pulse_4s_ease-in-out_infinite]"
             />
             <path
-              d="M74 150C84 158 92 161 100 161C108 161 116 158 126 150"
+              d="M76 149C85 156 92 159 100 159C108 159 115 156 124 149"
               fill="none"
               stroke="hsl(var(--primary) / 0.42)"
-              strokeWidth="1.6"
+              strokeWidth="1.4"
               strokeLinecap="round"
             />
           </svg>

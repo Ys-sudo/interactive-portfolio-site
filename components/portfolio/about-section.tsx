@@ -106,7 +106,7 @@ export function AboutSection() {
               }`}
             >
               {
-                "I work with agencies, studios, and direct clients to design, ship, and maintain fast digital products—from WooCommerce storefronts and Gatsby or Next.js sites to automation, prototypes, and creative tooling. My focus is sustainable architecture, SEO, accessibility, and practical long-term ownership."
+                "I work with agencies, studios, and direct clients to design, ship, and maintain fast digital products—from WooCommerce storefronts and Gatsby or Next.js sites to automation, prototypes, and creative tooling. I'm also the author of my own WordPress and WooCommerce theme work, and I regularly work across React, Python, shell scripting, server management, and monitoring."
               }
             </p>
             <p
@@ -144,9 +144,9 @@ export function AboutSection() {
             >
               <div>
                 <p className="text-3xl font-bold text-primary">
-                  <AnimatedCounter target={40} suffix="+" />
+                  <AnimatedCounter target={100} suffix="+" />
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">Projects Delivered</p>
+                <p className="mt-1 text-sm text-muted-foreground">Projects Worked On</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-primary">
@@ -156,9 +156,9 @@ export function AboutSection() {
               </div>
               <div>
                 <p className="text-3xl font-bold text-primary">
-                  <AnimatedCounter target={20} suffix="+" />
+                  <AnimatedCounter target={5} suffix="+" />
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">Headless Woo Stores</p>
+                <p className="mt-1 text-sm text-muted-foreground">Agency Partners</p>
               </div>
             </div>
           </div>
