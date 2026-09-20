@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Download, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { NAV_PROFILE_LINKS, PORTFOLIO_EMAIL } from "@/lib/portfolio";
 
 const navItems = [
   { label: "About", href: "/#about" },
@@ -48,14 +49,14 @@ export function Navigation() {
           : "bg-transparent",
       )}
     >
-      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4">
+      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-4 gap-4">
         <a
           href="/"
           className="font-mono text-sm tracking-wider text-primary transition-opacity hover:opacity-80"
         >
           GL
         </a>
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
@@ -72,6 +73,19 @@ export function Navigation() {
             </li>
           ))}
         </ul>
+        <div className="hidden lg:flex items-center gap-3">
+          {NAV_PROFILE_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
         <div className="hidden md:flex items-center gap-3">
           <a
             href="/schedule"
@@ -90,7 +104,7 @@ export function Navigation() {
             Download CV
           </a>
           <a
-            href="mailto:glazari27@gmail.com"
+            href={`mailto:${PORTFOLIO_EMAIL}`}
             className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-xs font-mono text-primary-foreground transition-all hover:brightness-110"
           >
             Get in Touch

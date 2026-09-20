@@ -10,67 +10,133 @@ import {
 } from "lucide-react";
 import { SectionHeader } from "./section-header";
 import { TiltCard } from "./tilt-card";
+import { PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio";
 
 const projects = [
   {
-    title: "shroom4you.com",
-    url: "https://shroom4you.com",
-    image: "/projects/shroom4you.jpg",
-    period: "2023 \u2014 Present",
+    title: "Coded Letter",
+    url: "https://github.com/coded-letter/",
+    period: "2026 — Present",
     description:
-      "A premium e-commerce platform for an adaptogenic mushroom drink brand. Built with a headless WordPress architecture powered by Gatsby.js and GraphQL, featuring dynamic product pages, seamless checkout flows, and optimized performance for a global audience.",
-    tags: ["Gatsby.js", "GraphQL", "WordPress", "E-commerce"],
-    highlight: "Headless CMS + JAMstack",
+      "My zero-dependency startup site and delivery hub, bringing together helpdesk tooling, Netlify Functions, server management, superfunky.pro distribution, prototyping, and open-source publishing.",
+    tags: ["0 dependencies", "Netlify Functions", "Open Source", "Server Management"],
+    highlight: "Own startup",
+    supportingLabel: "Core scope",
+    supporting: [
+      { label: "Helpdesk" },
+      { label: "superfunky distribution" },
+      { label: "prototyping" },
+      { label: "server ops" },
+    ],
   },
   {
-    title: "hex-to-rgb.com",
-    url: "https://hex-to-rgb.com",
-    image: "/projects/hex-to-rgb.jpg",
-    period: "2023 \u2014 Present",
+    title: "Superfunky.pro",
+    url: "https://superfunky.pro",
+    period: "2025 — Present",
     description:
-      "Conceived, designed, and single-handedly built a full-service color conversion platform serving 30k+ monthly active users. Engineered advanced color bridging algorithms for seamless conversion across HEX, RGB, HSL, CMYK, and other color spaces.",
-    tags: ["Vite", "React", "TypeScript", "SEO", "Firebase", "Google Adsense"],
-    highlight: "TypeScript",
+      "Author of a headless WordPress and WooCommerce theme platform with license checking, built for repeatable delivery and long-term management across multiple commerce deployments.",
+    tags: ["Headless WordPress", "WooCommerce", "Licensing", "Productization"],
+    highlight: "Platform product",
+    supportingLabel: "Selected stores",
+    supporting: [
+      { label: "aqua-bar.pl", url: "https://aqua-bar.pl" },
+      { label: "polskiewafle.pl", url: "https://polskiewafle.pl" },
+      { label: "camea.pl", url: "https://camea.pl" },
+    ],
   },
   {
-    title: "Sprout & Spore",
-    url: "",
-    image: "",
-    period: "2026",
-    description:
-      "Your AI-powered companion for growing plants and mushrooms. Get personalized growing instructions, identify species with AI vision, and track your garden collection. Fully built by me.",
-    tags: ["Vite", "React", "TypeScript", "SEO", "Firebase", "Google Adsense"],
-    highlight: "AI Companion",
-  },
-  {
-    title: "artopen.pl",
+    title: "ArtOpen.pl / sklep.artopen.pl",
     url: "https://artopen.pl",
-    image: "/projects/artopen.jpg",
-    period: "2020 \u2014 Present",
+    period: "2020 — Present",
     description:
-      "The digital home of a full-service creative agency in Wroc\u0142aw.  30+ web applications and design projects, built with modern React and server-side rendering for blazing-fast load times, integrated with custom CMS solutions and third-party APIs.",
-    tags: ["React.js", "Node.js", "SSR/SSG", "GCP"],
-    highlight: "30+ projects delivered",
+      "Long-term B2B and B2C collaboration spanning the agency website, the Promotron e-commerce platform, and custom delivery for client brands across WordPress, React, and headless systems.",
+    tags: ["WordPress", "React", "Headless", "E-commerce"],
+    highlight: "6-year collaboration",
+    supportingLabel: "Selected client work",
+    supporting: [
+      { label: "bekuplast.com.pl", url: "https://bekuplast.com.pl" },
+      { label: "DeLaval" },
+      { label: "Rexer" },
+      { label: "and more" },
+    ],
   },
   {
-    title: "swiezastrona.pl",
-    url: "https://swiezastrona.pl",
-    image: "/projects/swiezastrona.jpg",
-    period: "2024 \u2014 2025",
+    title: "Shroom4you.com",
+    url: "https://shroom4you.com",
+    period: "2022 — Present",
     description:
-      "A polished web development studio site offering custom WordPress solutions. Features responsive design, SEO-optimized architecture, and a Next.js-powered helpdesk platform with real-time updates and multi-method authentication.",
-    tags: ["WordPress", "Next.js", "SEO", "UI/UX", "Python", "Shell"],
-    highlight: "20+ client sites",
+      "Client e-commerce platform and storefront built on a headless stack, with ongoing ownership of the WordPress backend, Gatsby frontend, and PHP, SQL, and Node.js server environment.",
+    tags: ["Gatsby.js", "WooCommerce", "PHP", "Node.js"],
+    highlight: "Headless e-commerce",
+    supportingLabel: "Core responsibilities",
+    supporting: [
+      { label: "headless servers" },
+      { label: "Woo backend" },
+      { label: "frontend delivery" },
+      { label: "SEO / GEO" },
+    ],
   },
   {
-    title: "e-multicontent.com",
-    url: "https://e-multicontent.com",
-    image: "/projects/e-multicontent.jpg",
-    period: "2020 \u2014 2026",
+    title: "Świeżastrona.pl",
+    url: "https://web.archive.org/web/20250913002826/https://swiezastrona.pl/",
+    period: "Archive / 1-year collaboration",
     description:
-      "A comprehensive content marketing platform delivering multilingual copywriting, SEO strategy, and digital content solutions. Built with performance-first principles, featuring dynamic service pages, client portals, and integrated analytics dashboards.",
-    tags: ["React", "WordPress", "SEO", "Multilingual"],
-    highlight: "Multilingual content platform",
+      "Archive of a studio collaboration focused on custom WordPress and WooCommerce builds, plugins, tailored themes, and delivery for both mid-market and larger corporate clients.",
+    tags: ["WordPress", "WooCommerce", "B2B/B2C", "Custom Plugins"],
+    highlight: "Agency collaboration",
+    supportingLabel: "Selected brands",
+    supporting: [
+      { label: "organicseries.pl", url: "https://organicseries.pl" },
+      { label: "bbg.pl", url: "https://bbg.pl" },
+      { label: "triplesofficial.pl", url: "https://triplesofficial.pl" },
+      { label: "and more" },
+    ],
+  },
+  {
+    title: "e-multicontent.pl / let-pr.com",
+    url: "https://e-multicontent.pl",
+    period: "2018 — Present",
+    description:
+      "Part of a long-running B2B collaboration for IV Group, covering WordPress, React, headless builds, and practical publishing systems designed to reduce operating costs and improve agility.",
+    tags: ["WordPress", "React", "Headless", "B2B"],
+    highlight: "IV Group collaboration",
+    supportingLabel: "Related links",
+    supporting: [
+      { label: "let-pr.com", url: "https://let-pr.com" },
+      { label: "iv-group.pl", url: "https://iv-group.pl" },
+    ],
+  },
+  {
+    title: "Self-employed",
+    url: "https://github.com/ys-sudo",
+    period: "2018 — Present",
+    description:
+      "Independent client delivery across WooCommerce, legacy CMS implementations, performance optimization, and headless builds developed alongside long-term agency and studio collaborations.",
+    tags: ["Freelance", "WooCommerce", "Performance", "Headless"],
+    highlight: "Independent delivery",
+    supportingLabel: "Selected work",
+    supporting: [
+      { label: "powerenergy.com.pl", url: "https://powerenergy.com.pl" },
+      { label: "axel-travel.pl" },
+      { label: "Logicaltrust" },
+      { label: "3dprintingstl.com", url: "https://3dprintingstl.com" },
+    ],
+  },
+  {
+    title: "Creative",
+    url: "https://github.com/ys-sudo",
+    period: "R&D / archive",
+    description:
+      "Creative technology and research work spanning robotics interfaces, AR and CV experiments, VR, and open-source prototypes created in parallel with client and studio delivery.",
+    tags: ["R&D", "Creative Tech", "Open Source", "Prototyping"],
+    highlight: "Experimental work",
+    supportingLabel: "Selected projects",
+    supporting: [
+      { label: "plantguardian.app", url: "https://plantguardian.app" },
+      { label: "hair-coloring-app", url: "https://ys-sudo.github.io/hair-coloring-app/" },
+      { label: "PUUF VR project", url: "https://github.com/Ys-sudo/puuf-vr-project" },
+      { label: "More on GitHub", url: "https://github.com/ys-sudo" },
+    ],
   },
 ];
 
@@ -80,9 +146,6 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   return (
     <div data-magnetic className="h-full">
       <TiltCard className="group h-full flex flex-col rounded-lg border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors duration-300">
-        {/* Image intentionally removed for now */}
-
-        {/* Content */}
         <div className="flex flex-col flex-1 p-6">
           <div className="mb-4 min-w-0">
             <div className="flex items-start justify-between gap-3 min-w-0">
@@ -117,15 +180,44 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
             </div>
           </div>
 
-          <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
             {project.description}
           </p>
+
+          <div className="mb-5">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-muted-foreground font-mono">
+              {project.supportingLabel}
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {project.supporting.map((item) =>
+                item.url ? (
+                  <a
+                    key={item.label}
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                  >
+                    {item.label}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                ) : (
+                  <span
+                    key={item.label}
+                    className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground"
+                  >
+                    {item.label}
+                  </span>
+                ),
+              )}
+            </div>
+          </div>
 
           <div className="flex flex-wrap gap-2 mt-auto">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs font-mono text-muted-foreground"
+                className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-mono text-primary"
               >
                 {tag}
               </span>
@@ -170,14 +262,12 @@ export function ProjectsSection() {
     };
   }, [checkScroll]);
 
-  // Map vertical wheel to horizontal scroll (non-passive so preventDefault works)
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
 
     const onWheel = (e: WheelEvent) => {
       if (el.scrollWidth <= el.clientWidth) return;
-      // Only remap when the user is primarily scrolling vertically
       if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
       e.preventDefault();
       el.scrollBy({ left: e.deltaY, behavior: "auto" });
@@ -191,7 +281,7 @@ export function ProjectsSection() {
     const el = scrollRef.current;
     if (!el) return;
     const cardWidth =
-      el.querySelector<HTMLElement>(":scope > div")?.offsetWidth ?? 360;
+      el.querySelector<HTMLElement>(":scope > div")?.offsetWidth ?? 400;
     el.scrollBy({
       left: dir === "left" ? -cardWidth - 24 : cardWidth + 24,
       behavior: "smooth",
@@ -202,15 +292,11 @@ export function ProjectsSection() {
     const el = scrollRef.current;
     if (!el) return;
 
-    // Don't hijack clicks on interactive elements
     const target = e.target as HTMLElement;
     const interactive = target?.closest(
       "a, button, [role='button'], input, textarea, select, [data-no-drag]",
     );
-    if (interactive) return;
-
-    // Only enable drag scroll when there's overflow
-    if (el.scrollWidth <= el.clientWidth) return;
+    if (interactive || el.scrollWidth <= el.clientWidth) return;
 
     dragRef.current.active = true;
     dragRef.current.pointerId = e.pointerId;
@@ -223,13 +309,9 @@ export function ProjectsSection() {
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
-    if (!el) return;
-    if (!dragRef.current.active) return;
-    if (dragRef.current.pointerId !== e.pointerId) return;
+    if (!el || !dragRef.current.active || dragRef.current.pointerId !== e.pointerId) return;
 
     const dx = e.clientX - dragRef.current.startX;
-
-    // Only treat it as a drag after a small threshold
     if (!dragRef.current.moved) {
       if (Math.abs(dx) < 5) return;
       dragRef.current.moved = true;
@@ -240,9 +322,7 @@ export function ProjectsSection() {
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
-    if (!el) return;
-    if (!dragRef.current.active) return;
-    if (dragRef.current.pointerId !== e.pointerId) return;
+    if (!el || !dragRef.current.active || dragRef.current.pointerId !== e.pointerId) return;
 
     dragRef.current.active = false;
     dragRef.current.pointerId = -1;
@@ -270,7 +350,16 @@ export function ProjectsSection() {
           />
 
           <div className="relative min-w-0">
-            {/* Scroll controls */}
+            <div className="mx-auto mb-8 max-w-md overflow-hidden rounded-[2rem] border border-border bg-card">
+              <div className="aspect-[4/3]">
+                <img
+                  src={PLACEHOLDER_NEON_PHOTOS.projects}
+                  alt="Neon workspace placeholder above projects"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+
             <div className="flex items-center justify-end gap-2 mb-4">
               <span className="text-xs font-mono text-muted-foreground mr-auto">
                 Drag or scroll to explore
@@ -297,15 +386,13 @@ export function ProjectsSection() {
               </button>
             </div>
 
-            {/* Fade edges */}
             {canScrollLeft && (
-              <div className="pointer-events-none absolute left-0 top-12 bottom-0 w-12 z-10 bg-gradient-to-r from-background to-transparent" />
+              <div className="pointer-events-none absolute left-0 top-[13.5rem] bottom-0 w-12 z-10 bg-gradient-to-r from-background to-transparent" />
             )}
             {canScrollRight && (
-              <div className="pointer-events-none absolute right-0 top-12 bottom-0 w-12 z-10 bg-gradient-to-l from-background to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-[13.5rem] bottom-0 w-12 z-10 bg-gradient-to-l from-background to-transparent" />
             )}
 
-            {/* Scrollable row (magnetic snap) */}
             <div
               ref={scrollRef}
               className={`flex gap-6 overflow-x-scroll overflow-y-hidden pb-4 snap-x snap-mandatory scroll-smooth overscroll-x-contain select-none touch-pan-x scrollbars-none ${
@@ -323,7 +410,7 @@ export function ProjectsSection() {
               {projects.map((project) => (
                 <div
                   key={project.title}
-                  className="w-[340px] md:w-[380px] shrink-0 snap-start snap-always"
+                  className="w-[360px] md:w-[420px] shrink-0 snap-start snap-always"
                 >
                   <ProjectCard project={project} />
                 </div>
