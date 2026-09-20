@@ -171,7 +171,6 @@ export function AboutSection() {
                     <video
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                       aria-label="Short screen capture showing George's process in motion"
-                      autoPlay
                       muted
                       loop
                       playsInline
