@@ -9,16 +9,22 @@ const LINES = [
 ];
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
-  const [phase, setPhase] = useState<"typing" | "hold" | "reveal" | "done">(
-    "typing",
-  );
+  const [phase, setPhase] = useState<"typing" | "hold" | "reveal" | "done">("typing");
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
   const [showCaret, setShowCaret] = useState(true);
+  const [pixelFrame, setPixelFrame] = useState(0);
+
+  const pixelChars = ["█", "▓", "▒", "░", "¦", ":", "·"];
 
   // Caret blink
   useEffect(() => {
-    const interval = setInterval(() => setShowCaret((c) => !c), 530);
+    const interval = setInterval(() => setShowCaret((c) => !c), 620);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => setPixelFrame((frame) => frame + 1), 240);
     return () => clearInterval(interval);
   }, []);
 
@@ -33,7 +39,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
     }
 
     if (currentChar < line.text.length) {
-      const speed = line.mono ? 40 : 60 + Math.random() * 40;
+      const speed = line.mono ? 52 : 88 + Math.random() * 36;
       const timeout = setTimeout(() => setCurrentChar((c) => c + 1), speed);
       return () => clearTimeout(timeout);
     }
@@ -42,14 +48,14 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
     const timeout = setTimeout(() => {
       setCurrentLine((l) => l + 1);
       setCurrentChar(0);
-    }, 300);
+    }, 420);
     return () => clearTimeout(timeout);
   }, [phase, currentLine, currentChar]);
 
   // Hold, then reveal
   useEffect(() => {
     if (phase !== "hold") return;
-    const timeout = setTimeout(() => setPhase("reveal"), 600);
+    const timeout = setTimeout(() => setPhase("reveal"), 950);
     return () => clearTimeout(timeout);
   }, [phase]);
 
@@ -59,7 +65,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
     const timeout = setTimeout(() => {
       setPhase("done");
       onComplete();
-    }, 900);
+    }, 1200);
     return () => clearTimeout(timeout);
   }, [phase, onComplete]);
 
@@ -74,7 +80,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-background transition-all duration-700 ease-in-out ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-background transition-all duration-[1100ms] ease-in-out ${
         phase === "reveal"
           ? "opacity-0 scale-105 pointer-events-none"
           : "opacity-100 scale-100"
@@ -106,17 +112,19 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             lineIndex < currentLine
               ? line.text
               : lineIndex === currentLine
-                ? line.text.slice(0, currentChar)
+                ? line.mono
+                  ? line.text.slice(0, currentChar)
+                  : line.text
                 : "";
           const isCurrentLine = lineIndex === currentLine && phase === "typing";
 
           return (
             <div
               key={lineIndex}
-              className={`transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}
+              className={`transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}
             >
               {line.mono ? (
-                <p className="font-mono text-sm md:text-base text-primary/60 mt-4 tracking-wider">
+                <p className="mt-6 font-mono text-xs md:text-sm text-primary/60 tracking-[0.24em]">
                   {displayText}
                   {isCurrentLine && (
                     <span
@@ -128,11 +136,33 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                 </p>
               ) : (
                 <h1
-                  className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] ${
+                  className={`text-4xl md:text-6xl lg:text-7xl font-bold tracking-[-0.05em] leading-[0.92] ${
                     lineIndex === 1 ? "text-primary" : "text-foreground"
                   }`}
                 >
-                  {displayText}
+                  {line.text.split("").map((char, index) => {
+                    if (lineIndex !== currentLine || line.mono) {
+                      return <span key={`${lineIndex}-${index}`}>{displayText[index] ?? ""}</span>;
+                    }
+
+                    const isRevealed = index < currentChar;
+                    const isActivePixel = index === currentChar;
+
+                    return (
+                      <span
+                        key={`${lineIndex}-${index}`}
+                        className={`inline-block transition-all duration-500 ease-out ${
+                          isRevealed || isActivePixel ? "opacity-100" : "opacity-0"
+                        }`}
+                      >
+                        {char === " "
+                          ? " "
+                          : isActivePixel
+                            ? pixelChars[(pixelFrame + index) % pixelChars.length]
+                            : char}
+                      </span>
+                    );
+                  })}
                   {isCurrentLine && (
                     <span
                       className={`inline-block w-[3px] h-[0.85em] ml-1 align-middle transition-opacity duration-100 ${
@@ -146,10 +176,16 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
           );
         })}
 
+        <pre className="mt-10 font-mono text-[10px] leading-5 text-primary/45">
+{`[ boot ]
+pixel stream: ${String(Math.min(99, pixelFrame * 3)).padStart(2, "0")}%
+identity map: george.lazaridis`}
+        </pre>
+
         {/* Progress bar */}
         <div className="mt-10 mx-auto w-48 h-px bg-border overflow-hidden">
           <div
-            className="h-full bg-primary transition-all duration-300 ease-out"
+            className="h-full bg-primary transition-all duration-500 ease-out"
             style={{
               width: `${phase === "hold" || phase === "reveal" ? 100 : (currentLine / LINES.length) * 100 + (currentChar / (LINES[currentLine]?.text.length || 1)) * (100 / LINES.length)}%`,
             }}

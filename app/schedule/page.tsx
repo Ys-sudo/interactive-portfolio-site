@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Navigation } from "@/components/portfolio/navigation";
 import { Footer } from "@/components/portfolio/footer";
 import { MagneticCursor } from "@/components/portfolio/magnetic-cursor";
 import { ScrollProgress } from "@/components/portfolio/scroll-progress";
+import { PORTFOLIO_SECTION_IMAGES } from "@/lib/portfolio";
 import { scheduleData } from "@/lib/schedule-data";
 
 type ScheduleMode = "base" | "light" | "progress";
@@ -37,6 +39,26 @@ export default function SchedulePage() {
         <div className="relative z-10 mx-auto max-w-4xl px-6 py-32">
           {/* Header */}
           <section className="mb-16">
+            <div className="mb-8 max-w-3xl overflow-hidden rounded-[2rem] border border-border bg-card/70">
+              <div className="aspect-[16/7] relative">
+                <Image
+                  src={PORTFOLIO_SECTION_IMAGES.schedule}
+                  alt="Feature image for schedule page"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 896px"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+                <div className="absolute left-5 top-5 rounded-xl border border-primary/20 bg-background/75 px-3 py-2 backdrop-blur">
+                  <pre className="font-mono text-[10px] leading-4 text-primary/55">
+{`// routine.loader
+[] focus
+[] movement
+[] recovery`}
+                  </pre>
+                </div>
+              </div>
+            </div>
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-balance leading-tight mb-6">
               My <span className="text-primary">Schedule</span>
             </h1>

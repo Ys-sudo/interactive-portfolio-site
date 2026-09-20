@@ -5,6 +5,7 @@ import { Navigation } from "@/components/portfolio/navigation"
 import { HeroSection } from "@/components/portfolio/hero-section"
 import { AboutSection } from "@/components/portfolio/about-section"
 import { ExperienceSection } from "@/components/portfolio/experience-section"
+import { GallerySection } from "@/components/portfolio/gallery-section"
 import { ProjectsSection } from "@/components/portfolio/projects-section"
 import { SkillsSection } from "@/components/portfolio/skills-section"
 import { EducationSection } from "@/components/portfolio/education-section"
@@ -14,6 +15,9 @@ import { MagneticCursor } from "@/components/portfolio/magnetic-cursor"
 import { Preloader } from "@/components/portfolio/preloader"
 import { ScrollProgress } from "@/components/portfolio/scroll-progress"
 import { ParallaxLayer } from "@/components/portfolio/parallax-layer"
+import { TerminalSeparator } from "@/components/portfolio/terminal-separator"
+import { LotusSeparator } from "@/components/portfolio/lotus-separator"
+import { MotionSection } from "@/components/portfolio/motion-section"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -51,9 +55,13 @@ export default function Page() {
           <HeroSection />
           <AboutSection />
           <ExperienceSection />
+          <GallerySection />
           <ProjectsSection />
+          <TerminalSeparator />
           <SkillsSection />
           <EducationSection />
+          <LotusSeparator />
+          <MotionSection />
           <ContactSection />
         </main>
         <Footer />
