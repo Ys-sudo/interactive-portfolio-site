@@ -89,7 +89,7 @@ export function Navigation() {
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
             >
-              HTML CV <span aria-hidden="true">↗</span>
+              CV <span aria-hidden="true">↗</span>
               <span className="sr-only"> (opens in new tab)</span>
             </a>
           </li>
@@ -124,7 +124,7 @@ export function Navigation() {
             className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-xs font-mono text-primary transition-all hover:bg-primary hover:text-primary-foreground"
           >
             <Calendar className="h-3.5 w-3.5" />
-            My Schedule
+            Schedule
           </a>
           <a
             href="/Georgios-Lazaridis-CV.pdf"
