@@ -163,7 +163,7 @@ export function AboutSection() {
                       sizes={frame.sizes}
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
                   </div>
                 ))}
                 <div className="group relative overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
@@ -180,8 +180,8 @@ export function AboutSection() {
                     <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
                     Your browser does not support the motion study video.
                   </video>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-4">
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
                     <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary/85">
                       Motion Study
                     </p>
