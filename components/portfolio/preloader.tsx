@@ -15,10 +15,18 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
   const [showCaret, setShowCaret] = useState(true);
+  const [pixelFrame, setPixelFrame] = useState(0);
+
+  const pixelChars = ["█", "▓", "▒", "░"];
 
   // Caret blink
   useEffect(() => {
     const interval = setInterval(() => setShowCaret((c) => !c), 530);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => setPixelFrame((frame) => frame + 1), 120);
     return () => clearInterval(interval);
   }, []);
 
@@ -72,6 +80,17 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
 
   if (phase === "done") return null;
 
+  const getPixelatedText = (text: string, revealed: number) => {
+    return text
+      .split("")
+      .map((char, index) => {
+        if (index < revealed) return char;
+        if (char === " ") return " ";
+        return pixelChars[(pixelFrame + index) % pixelChars.length];
+      })
+      .join("");
+  };
+
   return (
     <div
       className={`fixed inset-0 z-[100] flex items-center justify-center bg-background transition-all duration-700 ease-in-out ${
@@ -106,7 +125,9 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             lineIndex < currentLine
               ? line.text
               : lineIndex === currentLine
-                ? line.text.slice(0, currentChar)
+                ? line.mono
+                  ? line.text.slice(0, currentChar)
+                  : getPixelatedText(line.text, currentChar)
                 : "";
           const isCurrentLine = lineIndex === currentLine && phase === "typing";
 
@@ -145,6 +166,12 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             </div>
           );
         })}
+
+        <pre className="mt-8 font-mono text-[10px] leading-4 text-primary/45">
+{`[ boot ]
+pixel stream: ${String(Math.min(99, pixelFrame * 3)).padStart(2, "0")}%
+identity map: george.lazaridis`}
+        </pre>
 
         {/* Progress bar */}
         <div className="mt-10 mx-auto w-48 h-px bg-border overflow-hidden">

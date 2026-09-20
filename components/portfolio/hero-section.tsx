@@ -59,7 +59,7 @@ export function HeroSection() {
               <div className="mb-8 inline-flex max-w-full items-center gap-4 overflow-hidden rounded-2xl border border-primary/20 bg-card/50 px-4 py-3 backdrop-blur">
                 <pre className="font-mono text-[10px] leading-4 text-primary/60">
 {`01001100 01001001 01010110 01000101
-&lt;/build&gt;  npm:off  dep:zero`}
+</build>  npm:off  dep:zero`}
                 </pre>
                 <div className="grid grid-cols-4 gap-1">
                   {Array.from({ length: 16 }).map((_, index) => (
@@ -149,6 +149,12 @@ export function HeroSection() {
                 <MessageCircle className="h-4 w-4" />
                 Join the Coded Letter Discord channel
               </a>
+              <pre className="mt-8 hidden max-w-max rounded-2xl border border-primary/20 bg-card/40 px-4 py-3 font-mono text-[10px] leading-4 text-primary/55 backdrop-blur md:block">
+{`> init_profile --mode neon
+[ ok ] headless commerce
+[ ok ] wp / react / next
+[ ok ] prototypes / automation`}
+              </pre>
             </div>
           </div>
 
