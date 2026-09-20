@@ -69,7 +69,7 @@ export function PixelText({
 
   return (
     <span className={`relative inline-block ${className}`}>
-      <span className="opacity-0" aria-hidden="true">
+      <span className="sr-only">
         {text}
       </span>
       <span aria-hidden="true" className="absolute inset-0">
