@@ -28,7 +28,7 @@ const experiences = [
       "Contribute to a six-year collaboration across both B2B and B2C projects, owning delivery from company platforms to custom client applications.",
       "Migrated the company website from Joomla to Gatsby and Decap CMS, later introducing the superfunky.pro headless architecture.",
       "Delivered 20+ client projects while driving research, SEO, and cost optimization through open-source tooling and lean infrastructure choices.",
-      "Since the last year, have been responsible for the Promotron e-commerce platform and broader microservice work across WordPress, React, Python, PHP, and 3D/animation workflows.",
+      "Over the past year, have been responsible for the Promotron e-commerce platform and broader microservice work across WordPress, React, Python, PHP, and 3D/animation workflows.",
     ],
     tags: ["Gatsby", "Decap CMS", "React", "Microservices"],
   },
