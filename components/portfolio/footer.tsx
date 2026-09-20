@@ -28,6 +28,7 @@ export function Footer() {
           <p className="font-mono text-xs text-muted-foreground">
             <PixelText
               text="© 2026 George Lazaridis / Coded Letter"
+              speed={170}
               overlayClassName="text-primary/30"
             />
           </p>
@@ -35,7 +36,11 @@ export function Footer() {
             href={`mailto:${PORTFOLIO_EMAIL}`}
             className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
           >
-            <PixelText text={PORTFOLIO_EMAIL} overlayClassName="text-primary/35" />
+            <PixelText
+              text={PORTFOLIO_EMAIL}
+              speed={170}
+              overlayClassName="text-primary/35"
+            />
           </a>
           <div className="mt-3 flex items-center gap-4 flex-wrap justify-center sm:justify-start">
             {NAV_PROFILE_LINKS.map((link, index) => (
@@ -47,7 +52,11 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
                 >
-                  <PixelText text={link.label} overlayClassName="text-primary/35" />
+                  <PixelText
+                    text={link.label}
+                    speed={170}
+                    overlayClassName="text-primary/35"
+                  />
                 </a>
               </div>
             ))}

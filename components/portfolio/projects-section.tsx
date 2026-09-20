@@ -356,7 +356,7 @@ export function ProjectsSection() {
       <div className="mx-auto max-w-6xl px-6">
         <div
           ref={sectionRef}
-          className={`grid lg:grid-cols-[200px_1fr] gap-12 transition-all duration-700 ${
+          className={`grid lg:grid-cols-[minmax(220px,25%)_minmax(0,75%)] gap-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
@@ -381,8 +381,8 @@ export function ProjectsSection() {
             </pre>
           </div>
 
-          <div className="relative min-w-0 lg:ml-[25%] lg:w-[75%]">
-            <div className="mb-8 flex justify-end">
+          <div className="relative min-w-0">
+            <div className="mb-8">
               <div className="w-full overflow-hidden rounded-[1.5rem] border border-primary/15 bg-card/50 px-4 py-3 backdrop-blur">
                 <pre className="font-mono text-[10px] leading-4 text-primary/55">
 {`// swipe lane: 75%
@@ -427,7 +427,7 @@ export function ProjectsSection() {
 
             <div
               ref={scrollRef}
-              className={`flex gap-6 overflow-x-scroll overflow-y-hidden pb-4 snap-x snap-mandatory scroll-smooth overscroll-x-contain select-none touch-pan-x scrollbars-none ${
+              className={`flex gap-6 overflow-x-scroll overflow-y-hidden pb-4 lg:pl-[25%] snap-x snap-mandatory scroll-smooth overscroll-x-contain select-none touch-pan-x scrollbars-none ${
                 isDragging ? "cursor-grabbing" : "cursor-grab"
               }`}
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}

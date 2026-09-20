@@ -80,17 +80,6 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
 
   if (phase === "done") return null;
 
-  const getPixelatedText = (text: string, revealed: number) => {
-    return text
-      .split("")
-      .map((char, index) => {
-        if (index < revealed) return char;
-        if (char === " ") return " ";
-        return pixelChars[(pixelFrame + index) % pixelChars.length];
-      })
-      .join("");
-  };
-
   return (
     <div
       className={`fixed inset-0 z-[100] flex items-center justify-center bg-background transition-all duration-700 ease-in-out ${
@@ -153,7 +142,33 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                     lineIndex === 1 ? "text-primary" : "text-foreground"
                   }`}
                 >
-                  {displayText}
+                  {line.text.split("").map((char, index) => {
+                    if (lineIndex !== currentLine || line.mono) {
+                      return <span key={`${lineIndex}-${index}`}>{displayText[index] ?? ""}</span>;
+                    }
+
+                    const isRevealed = index < currentChar;
+                    const isActivePixel = index === currentChar;
+
+                    return (
+                      <span
+                        key={`${lineIndex}-${index}`}
+                        className={
+                          isRevealed
+                            ? "opacity-100"
+                            : isActivePixel
+                              ? "opacity-100"
+                              : "opacity-35"
+                        }
+                      >
+                        {char === " "
+                          ? " "
+                          : isActivePixel
+                            ? pixelChars[(pixelFrame + index) % pixelChars.length]
+                            : char}
+                      </span>
+                    );
+                  })}
                   {isCurrentLine && (
                     <span
                       className={`inline-block w-[3px] h-[0.85em] ml-1 align-middle transition-opacity duration-100 ${

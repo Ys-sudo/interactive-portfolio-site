@@ -15,6 +15,7 @@ import { Preloader } from "@/components/portfolio/preloader"
 import { ScrollProgress } from "@/components/portfolio/scroll-progress"
 import { ParallaxLayer } from "@/components/portfolio/parallax-layer"
 import { TerminalSeparator } from "@/components/portfolio/terminal-separator"
+import { LotusSeparator } from "@/components/portfolio/lotus-separator"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -56,6 +57,7 @@ export default function Page() {
           <TerminalSeparator />
           <SkillsSection />
           <EducationSection />
+          <LotusSeparator />
           <ContactSection />
         </main>
         <Footer />

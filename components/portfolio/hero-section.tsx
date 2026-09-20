@@ -79,10 +79,18 @@ export function HeroSection() {
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <PixelText text="George" overlayClassName="text-primary/20" />
+              <PixelText
+                text="George"
+                speed={140}
+                overlayClassName="text-primary/35"
+              />
               <br />
               <span className="text-primary">
-                <PixelText text="Lazaridis" overlayClassName="text-primary/40" />
+                <PixelText
+                  text="Lazaridis"
+                  speed={140}
+                  overlayClassName="text-primary/55"
+                />
               </span>
             </h1>
             <p
