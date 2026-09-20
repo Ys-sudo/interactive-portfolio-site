@@ -8,8 +8,8 @@ import { PortfolioImage } from "./portfolio-image"
 import { SectionHeader } from "./section-header"
 import { TiltCard } from "./tilt-card"
 
-const galleryImages = PORTFOLIO_GATHERED_IMAGES.gallery.map((basename, index) => ({
-  basename,
+const galleryImages = PORTFOLIO_GATHERED_IMAGES.gallery.map((src, index) => ({
+  src,
   alt: `Portfolio gallery image ${index + 1}`,
   rotation:
     index % 3 === 0 ? "-rotate-1" : index % 3 === 1 ? "rotate-[1.5deg]" : "rotate-0",
@@ -46,7 +46,7 @@ export function GallerySection() {
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {galleryImages.map((image, index) => (
                 <div
-                  key={image.basename}
+                  key={image.src}
                   className={`transition-all duration-700 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
@@ -55,7 +55,7 @@ export function GallerySection() {
                   <TiltCard className={`overflow-hidden rounded-[1.75rem] border border-border bg-card/80 ${image.rotation}`}>
                     <div className={`relative ${image.aspect}`}>
                       <PortfolioImage
-                        basename={image.basename}
+                        src={image.src}
                         alt={image.alt}
                         fallbackSrc={PLACEHOLDER_NEON_PHOTOS.projects}
                         className="h-full w-full object-cover"
@@ -63,7 +63,7 @@ export function GallerySection() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
                       <div className="absolute bottom-4 left-4 rounded-full border border-primary/20 bg-background/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-primary/70 backdrop-blur">
-                        {image.basename}
+                        {image.src.split("/").pop()?.replace(/\.[^.]+$/, "")}
                       </div>
                     </div>
                   </TiltCard>

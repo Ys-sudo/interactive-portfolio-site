@@ -72,7 +72,7 @@ export function PixelText({
       <span className="opacity-0" aria-hidden="true">
         {text}
       </span>
-      <span className="absolute inset-0">
+      <span aria-hidden="true" className="absolute inset-0">
         {foreground.map((char, index) => (
           <span key={`${text}-${index}`}>{char}</span>
         ))}

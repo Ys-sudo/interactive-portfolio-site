@@ -180,7 +180,7 @@ export function HeroSection() {
               <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-primary/10 blur-2xl" />
               <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-2xl shadow-primary/10">
                 <PortfolioImage
-                  basename={PORTFOLIO_GATHERED_IMAGES.hero}
+                  src={PORTFOLIO_GATHERED_IMAGES.hero}
                   alt="Neon-lit portrait placeholder"
                   fallbackSrc={PLACEHOLDER_NEON_PHOTOS.hero}
                   className="h-full w-full object-cover"
