@@ -10,7 +10,7 @@ const skillCategories = [
     skills: [
       { name: "React.js / Next.js", level: 95 },
       { name: "TypeScript", level: 90 },
-      { name: "Gatsby.js", level: 85 },
+      { name: "Gatsby.js / Vite", level: 88 },
       { name: "HTML5 / CSS3 / SASS", level: 95 },
       { name: "Tailwind CSS", level: 90 },
     ],
@@ -22,14 +22,14 @@ const skillCategories = [
       { name: "PHP / WordPress", level: 92 },
       { name: "Python", level: 75 },
       { name: "REST / GraphQL APIs", level: 90 },
-      { name: "PostgreSQL / MySQL", level: 82 },
+      { name: "Firebase / SQL", level: 82 },
     ],
   },
   {
     title: "Cloud & DevOps",
     skills: [
       { name: "GCP / AWS", level: 78 },
-      { name: "Docker", level: 75 },
+      { name: "Automation Workflows", level: 82 },
       { name: "CI/CD Pipelines", level: 80 },
       { name: "Netlify / Vercel", level: 90 },
       { name: "Git / GitHub", level: 92 },
@@ -40,9 +40,9 @@ const skillCategories = [
     skills: [
       { name: "Figma / UI Design", level: 88 },
       { name: "SEO / WCAG", level: 85 },
-      { name: "Agile / Scrum", level: 80 },
+      { name: "AI Product Concepts", level: 78 },
       { name: "Shell Scripting", level: 70 },
-      { name: "Redis / MongoDB", level: 72 },
+      { name: "Performance Optimization", level: 90 },
     ],
   },
 ]

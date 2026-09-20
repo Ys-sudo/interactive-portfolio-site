@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Calendar, Github, Linkedin, MessageCircle } from "lucide-react";
+import { Download, Calendar, Github, Linkedin, MessageCircle, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_PROFILE_LINKS } from "@/lib/portfolio";
 
@@ -114,6 +114,15 @@ export function Navigation() {
           >
             <Download className="h-3.5 w-3.5" />
             Download CV
+          </a>
+          <a
+            href="/Georgios-Lazaridis-CV.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-primary px-4 py-2 text-xs font-mono text-primary transition-all hover:bg-primary hover:text-primary-foreground"
+          >
+            <FileText className="h-3.5 w-3.5" />
+            HTML CV
           </a>
         </div>
       </div>

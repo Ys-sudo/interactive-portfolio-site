@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowDown, Mail, MapPin, FileDown, Calendar, MessageCircle } from "lucide-react";
+import { ArrowDown, Mail, MapPin, FileDown, FileText, Calendar, MessageCircle } from "lucide-react";
 import { ParticleNetwork } from "./particle-network";
 import { PixelText } from "./pixel-text";
 import { PortfolioImage } from "./portfolio-image";
@@ -147,6 +147,15 @@ export function HeroSection() {
                 >
                   <FileDown className="h-4 w-4" />
                   View Full CV
+                </a>
+                <a
+                  href="/Georgios-Lazaridis-CV.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-md border border-primary px-6 py-3 text-sm font-medium text-primary transition-all hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <FileText className="h-4 w-4" />
+                  View HTML CV
                 </a>
                 <a
                   href="/schedule"
