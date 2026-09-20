@@ -61,10 +61,10 @@ export function Navigation() {
           href="/Georgios-Lazaridis-CV.html"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="HTML CV (opens in new tab)"
           className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary md:hidden"
         >
-          HTML CV ↗
+          HTML CV <span aria-hidden="true">↗</span>
+          <span className="sr-only"> (opens in new tab)</span>
         </a>
         <ul className="hidden md:flex items-center gap-6 lg:gap-8">
           {navItems.map((item) => (
@@ -87,10 +87,10 @@ export function Navigation() {
               href="/Georgios-Lazaridis-CV.html"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="HTML CV (opens in new tab)"
               className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
             >
-              HTML CV ↗
+              HTML CV <span aria-hidden="true">↗</span>
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </li>
         </ul>

@@ -1,22 +1,33 @@
 "use client"
 
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+
 export function LotusSeparator() {
+  const { ref, isVisible } = useScrollAnimation(0.1)
+
   return (
     <section className="py-10">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/15 bg-card/40 px-6 py-8 shadow-[0_0_36px_hsl(var(--primary)/0.06)] backdrop-blur">
+        <div
+          ref={ref}
+          className="relative overflow-hidden rounded-[1.75rem] border border-primary/15 bg-card/40 px-6 py-8 shadow-[0_0_36px_hsl(var(--primary)/0.06)] backdrop-blur"
+        >
           <div className="pointer-events-none absolute inset-0">
-            <video
-              className="h-full w-full object-cover"
-              aria-hidden="true"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-            >
-              <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
-            </video>
+            {isVisible ? (
+              <video
+                className="h-full w-full object-cover"
+                aria-hidden="true"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              >
+                <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
+              </video>
+            ) : (
+              <div className="h-full w-full bg-card" />
+            )}
             <div className="absolute inset-0 bg-background/70" />
             <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/70 to-transparent" />
           </div>
