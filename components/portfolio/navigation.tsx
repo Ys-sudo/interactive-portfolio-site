@@ -78,6 +78,7 @@ export function Navigation() {
               href="/Georgios-Lazaridis-CV.html"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="HTML CV (opens in new tab)"
               className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
             >
               HTML CV

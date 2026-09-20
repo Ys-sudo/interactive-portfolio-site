@@ -16,7 +16,6 @@ export function LotusSeparator() {
               preload="metadata"
             >
               <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
-              Your browser does not support the motion study video.
             </video>
             <div className="absolute inset-0 bg-background/70" />
             <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-background/70 to-transparent" />
