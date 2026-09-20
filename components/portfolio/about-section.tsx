@@ -1,8 +1,22 @@
 "use client"
 
+import Image from "next/image"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useTextScramble } from "@/hooks/use-text-scramble"
 import { useEffect, useRef, useState } from "react"
+
+const mediaFrames = [
+  {
+    src: "/DSCF6090.jpeg",
+    alt: "George working in a sunlit studio setting",
+    className: "md:col-span-2 md:row-span-2",
+  },
+  {
+    src: "/DSCF7001.jpeg",
+    alt: "Portrait detail from George's editorial photo set",
+    className: "",
+  },
+]
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -117,6 +131,60 @@ export function AboutSection() {
                 <p className="mt-1 text-sm text-muted-foreground">
                   Languages Spoken
                 </p>
+              </div>
+            </div>
+            <div
+              className={`mt-12 transition-all duration-700 delay-[500ms] ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+            >
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary/80">
+                  Selected Frames
+                </p>
+                <span className="rounded-full border border-primary/20 px-3 py-1 text-[11px] font-mono text-muted-foreground">
+                  Fine arts × product builder
+                </span>
+              </div>
+              <div className="grid gap-4 md:grid-cols-3 auto-rows-[180px]">
+                {mediaFrames.map((frame) => (
+                  <div
+                    key={frame.src}
+                    className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-card ${frame.className}`}
+                  >
+                    <Image
+                      src={frame.src}
+                      alt={frame.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
+                  </div>
+                ))}
+                <div className="group relative overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
+                  <video
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src="/Screen Recording 2025-03-23 at 12.48.25.mov" type="video/quicktime" />
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary/85">
+                      Motion Study
+                    </p>
+                    <p className="mt-1 text-sm text-foreground/85">
+                      Process captured in motion, keeping the portfolio human and tactile.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
