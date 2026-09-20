@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { SectionHeader } from "./section-header";
 import { TiltCard } from "./tilt-card";
+import { PixelText } from "./pixel-text";
 import { PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio";
 
 const projects = [
@@ -164,13 +165,17 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
                     className="block min-w-0 text-lg font-semibold text-foreground hover:text-primary transition-colors"
                   >
                     <span className="inline-flex min-w-0 items-center gap-2">
-                      <span className="truncate">{project.title}</span>
+                      <span className="truncate">
+                        <PixelText text={project.title} overlayClassName="text-primary/20" />
+                      </span>
                       <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </span>
                   </a>
                 ) : (
                   <div className="text-lg font-semibold text-foreground">
-                    <span className="block truncate">{project.title}</span>
+                    <span className="block truncate">
+                      <PixelText text={project.title} overlayClassName="text-primary/20" />
+                    </span>
                   </div>
                 )}
                 <p className="font-mono text-xs text-muted-foreground mt-0.5">
@@ -179,7 +184,12 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
               </div>
             </div>
 
-            <div className="mt-3 flex justify-end">
+            <div className="mt-3 flex items-start justify-between gap-4">
+              <pre className="font-mono text-[10px] leading-4 text-primary/45">
+{`> route.project
+[id] stable
+[fx] pixel`}
+              </pre>
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-mono text-primary whitespace-nowrap">
                 {project.highlight}
               </span>
@@ -350,21 +360,35 @@ export function ProjectsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <SectionHeader
-            title="Projects"
-            icon={<FolderOpen className="h-5 w-5" />}
-          />
-
-          <div className="relative min-w-0">
-            <div className="mb-8 flex justify-end">
-              <div className="w-full max-w-md overflow-hidden rounded-[2rem] border border-border bg-card">
+          <div className="space-y-6">
+            <SectionHeader
+              title="Projects"
+              icon={<FolderOpen className="h-5 w-5" />}
+            />
+            <div className="overflow-hidden rounded-[2rem] border border-border bg-card">
               <div className="aspect-[4/3]">
                 <img
                   src={PLACEHOLDER_NEON_PHOTOS.projects}
-                  alt="Neon workspace placeholder above projects"
+                  alt="Neon workspace placeholder for projects section"
                   className="h-full w-full object-cover"
                 />
               </div>
+            </div>
+            <pre className="hidden font-mono text-[10px] leading-4 text-primary/45 lg:block">
+{`project.buffer
+░░ escape lane
+██ slide focus`}
+            </pre>
+          </div>
+
+          <div className="relative min-w-0 lg:ml-[25%] lg:w-[75%]">
+            <div className="mb-8 flex justify-end">
+              <div className="w-full overflow-hidden rounded-[1.5rem] border border-primary/15 bg-card/50 px-4 py-3 backdrop-blur">
+                <pre className="font-mono text-[10px] leading-4 text-primary/55">
+{`// swipe lane: 75%
+// escape buffer: 25%
+// navigation: smooth`}
+                </pre>
               </div>
             </div>
 
@@ -395,10 +419,10 @@ export function ProjectsSection() {
             </div>
 
             {canScrollLeft && (
-              <div className="pointer-events-none absolute left-0 top-[13.5rem] bottom-0 w-12 z-10 bg-gradient-to-r from-background to-transparent" />
+              <div className="pointer-events-none absolute left-0 top-24 bottom-0 w-12 z-10 bg-gradient-to-r from-background to-transparent" />
             )}
             {canScrollRight && (
-              <div className="pointer-events-none absolute right-0 top-[13.5rem] bottom-0 w-12 z-10 bg-gradient-to-l from-background to-transparent" />
+              <div className="pointer-events-none absolute right-0 top-24 bottom-0 w-12 z-10 bg-gradient-to-l from-background to-transparent" />
             )}
 
             <div
@@ -418,7 +442,7 @@ export function ProjectsSection() {
               {projects.map((project) => (
                 <div
                   key={project.title}
-                  className="w-[360px] md:w-[420px] shrink-0 snap-start snap-always"
+                  className="w-[340px] md:w-[400px] shrink-0 snap-start snap-always"
                 >
                   <ProjectCard project={project} />
                 </div>

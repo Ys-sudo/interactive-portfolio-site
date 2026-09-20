@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { NAV_PROFILE_LINKS, PORTFOLIO_EMAIL } from "@/lib/portfolio";
+import { PixelText } from "./pixel-text";
 
 const ASCII_FRAMES = [
   `> ssh coded-letter@signal\n[auth] granted\n[stack] wp / react / next`,
@@ -25,13 +26,16 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-col items-center gap-1 sm:items-start">
           <p className="font-mono text-xs text-muted-foreground">
-            © 2026 George Lazaridis / Coded Letter
+            <PixelText
+              text="© 2026 George Lazaridis / Coded Letter"
+              overlayClassName="text-primary/30"
+            />
           </p>
           <a
             href={`mailto:${PORTFOLIO_EMAIL}`}
             className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
           >
-            {PORTFOLIO_EMAIL}
+            <PixelText text={PORTFOLIO_EMAIL} overlayClassName="text-primary/35" />
           </a>
           <div className="mt-3 flex items-center gap-4 flex-wrap justify-center sm:justify-start">
             {NAV_PROFILE_LINKS.map((link, index) => (
@@ -43,7 +47,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {link.label}
+                  <PixelText text={link.label} overlayClassName="text-primary/35" />
                 </a>
               </div>
             ))}

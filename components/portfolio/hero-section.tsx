@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowDown, Mail, MapPin, FileDown, Calendar, MessageCircle } from "lucide-react";
 import { ParticleNetwork } from "./particle-network";
+import { PixelText } from "./pixel-text";
 import {
   PLACEHOLDER_NEON_PHOTOS,
   PORTFOLIO_EMAIL,
@@ -78,9 +79,11 @@ export function HeroSection() {
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              George
+              <PixelText text="George" overlayClassName="text-primary/20" />
               <br />
-              <span className="text-primary">Lazaridis</span>
+              <span className="text-primary">
+                <PixelText text="Lazaridis" overlayClassName="text-primary/40" />
+              </span>
             </h1>
             <p
               className={`mt-8 max-w-xl text-muted-foreground leading-relaxed text-lg transition-all duration-700 delay-200 ${
@@ -127,7 +130,7 @@ export function HeroSection() {
                   href="/Georgios-Lazaridis-CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center gap-2.5 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[0_0_28px_hsl(var(--primary)/0.32)] transition-all hover:brightness-110 hover:scale-[1.02] hover:shadow-[0_0_38px_hsl(var(--primary)/0.45)] active:scale-[0.98]"
                 >
                   <FileDown className="h-4 w-4" />
                   View Full CV

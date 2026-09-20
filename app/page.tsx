@@ -14,6 +14,7 @@ import { MagneticCursor } from "@/components/portfolio/magnetic-cursor"
 import { Preloader } from "@/components/portfolio/preloader"
 import { ScrollProgress } from "@/components/portfolio/scroll-progress"
 import { ParallaxLayer } from "@/components/portfolio/parallax-layer"
+import { TerminalSeparator } from "@/components/portfolio/terminal-separator"
 
 export default function Page() {
   const [loaded, setLoaded] = useState(false)
@@ -52,6 +53,7 @@ export default function Page() {
           <AboutSection />
           <ExperienceSection />
           <ProjectsSection />
+          <TerminalSeparator />
           <SkillsSection />
           <EducationSection />
           <ContactSection />

@@ -4,6 +4,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Briefcase } from "lucide-react"
 import { SectionHeader } from "./section-header"
 import { TiltCard } from "./tilt-card"
+import { PixelText } from "./pixel-text"
 
 const experiences = [
   {
@@ -125,19 +126,39 @@ function ExperienceCard({
         }`}
         style={{ transitionDelay: `${index * 100}ms` }}
       >
-        <TiltCard className="rounded-lg border border-border bg-card p-6 hover:border-primary/30 transition-colors duration-300">
+        <TiltCard className="rounded-lg border border-border bg-card/90 p-6 shadow-[0_0_30px_hsl(var(--primary)/0.04)] hover:border-primary/30 transition-colors duration-300">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 mb-3">
             <div>
               <h3 className="text-lg font-semibold text-foreground">
-                {exp.title}
+                <PixelText text={exp.title} overlayClassName="text-primary/20" />
               </h3>
-              <p className="text-primary font-medium">{exp.company}</p>
+              <p className="text-primary font-medium">
+                <PixelText text={exp.company} overlayClassName="text-primary/35" />
+              </p>
             </div>
             <div className="text-right">
               <p className="font-mono text-xs text-muted-foreground">
                 {exp.period}
               </p>
               <p className="text-xs text-muted-foreground">{exp.location}</p>
+            </div>
+          </div>
+
+          <div className="mb-4 flex items-start justify-between gap-4">
+            <pre className="font-mono text-[10px] leading-4 text-primary/45">
+{`> exp.load
+[ok] shipping
+[ok] support`}
+            </pre>
+            <div className="grid grid-cols-4 gap-1">
+              {Array.from({ length: 16 }).map((_, pixel) => (
+                <span
+                  key={pixel}
+                  className={`h-2 w-2 rounded-[2px] ${
+                    pixel % 3 === 0 ? "bg-primary/30" : "bg-border/80"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 
@@ -174,10 +195,18 @@ export function ExperienceSection() {
     <section id="experience" className="py-32 relative">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid lg:grid-cols-[200px_1fr] gap-12">
-          <SectionHeader
-            title="Experience"
-            icon={<Briefcase className="h-5 w-5" />}
-          />
+          <div>
+            <SectionHeader
+              title="Experience"
+              icon={<Briefcase className="h-5 w-5" />}
+            />
+            <pre className="mt-6 hidden font-mono text-[10px] leading-4 text-primary/45 lg:block">
+{`timeline.sync
+██ work.log
+██ ops.log
+██ build.log`}
+            </pre>
+          </div>
           <div>
             {experiences.map((exp, i) => (
               <ExperienceCard key={`${exp.company}-${exp.title}`} exp={exp} index={i} />
