@@ -166,22 +166,24 @@ export function AboutSection() {
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
                   </div>
                 ))}
-                <div className="group relative overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
-                  <video
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                    aria-label="Short screen capture showing George's process in motion"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    controls
-                  >
-                    <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
-                    Your browser does not support the motion study video.
-                  </video>
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
+                <div className="group overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
+                  <div className="relative">
+                    <video
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                      aria-label="Short screen capture showing George's process in motion"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      controls
+                    >
+                      <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
+                      Your browser does not support the motion study video.
+                    </video>
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background/60 to-transparent" />
+                  </div>
+                  <div className="border-t border-border/80 px-4 py-3">
                     <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary/85">
                       Motion Study
                     </p>
