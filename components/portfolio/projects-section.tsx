@@ -16,9 +16,9 @@ const projects = [
     title: "shroom4you.com",
     url: "https://shroom4you.com",
     image: "/projects/shroom4you.jpg",
-    period: "2023 \u2014 Present",
+    period: "2023 \u2014 2025",
     description:
-      "A premium e-commerce platform for an adaptogenic mushroom drink brand. Built with a headless WordPress architecture powered by Gatsby.js and GraphQL, featuring dynamic product pages, seamless checkout flows, and optimized performance for a global audience.",
+      "A headless e-commerce experience for an adaptogenic mushroom drink brand, built with Gatsby.js, GraphQL, and WordPress. Designed for scalable content delivery, fast storefront performance, and streamlined editorial workflows.",
     tags: ["Gatsby.js", "GraphQL", "WordPress", "E-commerce"],
     highlight: "Headless CMS + JAMstack",
   },
@@ -28,9 +28,9 @@ const projects = [
     image: "/projects/hex-to-rgb.jpg",
     period: "2023 \u2014 Present",
     description:
-      "Conceived, designed, and single-handedly built a full-service color conversion platform serving 30k+ monthly active users. Engineered advanced color bridging algorithms for seamless conversion across HEX, RGB, HSL, CMYK, and other color spaces.",
+      "A full-service color conversion platform serving 30k+ monthly active users. Conceived, designed, and engineered end to end with advanced conversion flows across HEX, RGB, HSL, CMYK, and related color spaces.",
     tags: ["Vite", "React", "TypeScript", "SEO", "Firebase", "Google Adsense"],
-    highlight: "TypeScript",
+    highlight: "30k+ MAU",
   },
   {
     title: "Sprout & Spore",
@@ -38,8 +38,8 @@ const projects = [
     image: "",
     period: "2026",
     description:
-      "Your AI-powered companion for growing plants and mushrooms. Get personalized growing instructions, identify species with AI vision, and track your garden collection. Fully built by me.",
-    tags: ["Vite", "React", "TypeScript", "SEO", "Firebase", "Google Adsense"],
+      "An AI-powered companion for growing plants and mushrooms with personalized guidance, species identification, and collection tracking. Built as an end-to-end product concept blending product design, frontend development, and AI-led user value.",
+    tags: ["Vite", "React", "TypeScript", "Firebase", "AI"],
     highlight: "AI Companion",
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     image: "/projects/artopen.jpg",
     period: "2020 \u2014 Present",
     description:
-      "The digital home of a full-service creative agency in Wroc\u0142aw.  30+ web applications and design projects, built with modern React and server-side rendering for blazing-fast load times, integrated with custom CMS solutions and third-party APIs.",
+      "The digital home of a full-service creative agency in Wroc\u0142aw, representing 30+ web applications and design engagements. Built with modern React patterns, SSR/SSG delivery, custom CMS integrations, and third-party services.",
     tags: ["React.js", "Node.js", "SSR/SSG", "GCP"],
     highlight: "30+ projects delivered",
   },
@@ -58,7 +58,7 @@ const projects = [
     image: "/projects/swiezastrona.jpg",
     period: "2024 \u2014 2025",
     description:
-      "A polished web development studio site offering custom WordPress solutions. Features responsive design, SEO-optimized architecture, and a Next.js-powered helpdesk platform with real-time updates and multi-method authentication.",
+      "A polished studio site showcasing custom WordPress delivery, responsive implementation, and SEO-first execution. Includes a Next.js helpdesk platform with real-time updates and multi-method authentication.",
     tags: ["WordPress", "Next.js", "SEO", "UI/UX", "Python", "Shell"],
     highlight: "20+ client sites",
     links: [{ label: "market-er.pl", url: "https://market-er.pl" }],
@@ -69,7 +69,7 @@ const projects = [
     image: "/projects/e-multicontent.jpg",
     period: "2020 \u2014 2026",
     description:
-      "A comprehensive content marketing platform delivering multilingual copywriting, SEO strategy, and digital content solutions. Built with performance-first principles, featuring dynamic service pages, client portals, and integrated analytics dashboards.",
+      "A multilingual content marketing platform focused on copywriting, SEO strategy, and digital content delivery. Built with performance-first principles, dynamic service pages, and analytics-aware content experiences.",
     tags: ["React", "WordPress", "SEO", "Multilingual"],
     highlight: "Multilingual content platform",
   },

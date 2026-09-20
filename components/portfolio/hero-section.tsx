@@ -58,10 +58,10 @@ export function HeroSection() {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              Dynamic full-stack web developer delivering scalable,
-              high-performance applications. Proficient in modern frameworks
-              with a strong foundation in SEO, WordPress, e-commerce,
-              accessibility, AI and DevOps.
+             Full-stack web developer with a Fine Arts background, building
+             scalable digital products across SaaS, e-commerce, content, and
+             internal tooling with a strong focus on performance, SEO,
+             accessibility, and product ownership.
             </p>
             <div
               className={`mt-8 flex flex-wrap items-center gap-6 text-sm text-muted-foreground transition-all duration-700 delay-300 ${

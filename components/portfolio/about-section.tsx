@@ -89,7 +89,7 @@ export function AboutSection() {
               }`}
             >
               {
-                "I'm a full-stack web developer with a Fine Arts background, blending creative vision with technical expertise. I build scalable, user-focused applications using React.js, Next.js, Node.js, and modern cloud platforms."
+                "I'm a full-stack web developer with a Fine Arts background, combining product thinking, visual design, and engineering to build scalable digital experiences across SaaS, e-commerce, content, and internal tools."
               }
             </p>
             <p
@@ -100,7 +100,7 @@ export function AboutSection() {
               }`}
             >
               {
-                "With experience spanning e-commerce, headless CMS architectures, and data-driven web applications, I bring a proven track record of on-time delivery and performance optimization. My work emphasizes SEO, accessibility (WCAG), and robust DevOps workflows."
+                "I work across React, Next.js, TypeScript, Node.js, WordPress, and modern cloud platforms, taking projects from concept to launch with strong ownership. My work consistently emphasizes performance, SEO, accessibility (WCAG), maintainable delivery pipelines, and long-term product quality."
               }
             </p>
             <div
