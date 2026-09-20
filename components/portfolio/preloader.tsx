@@ -15,10 +15,18 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   const [currentLine, setCurrentLine] = useState(0);
   const [currentChar, setCurrentChar] = useState(0);
   const [showCaret, setShowCaret] = useState(true);
+  const [pixelFrame, setPixelFrame] = useState(0);
+
+  const pixelChars = ["▓", "▒", "░"];
 
   // Caret blink
   useEffect(() => {
     const interval = setInterval(() => setShowCaret((c) => !c), 530);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => setPixelFrame((frame) => frame + 1), 180);
     return () => clearInterval(interval);
   }, []);
 
@@ -106,7 +114,9 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             lineIndex < currentLine
               ? line.text
               : lineIndex === currentLine
-                ? line.text.slice(0, currentChar)
+                ? line.mono
+                  ? line.text.slice(0, currentChar)
+                  : line.text
                 : "";
           const isCurrentLine = lineIndex === currentLine && phase === "typing";
 
@@ -132,7 +142,27 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
                     lineIndex === 1 ? "text-primary" : "text-foreground"
                   }`}
                 >
-                  {displayText}
+                  {line.text.split("").map((char, index) => {
+                    if (lineIndex !== currentLine || line.mono) {
+                      return <span key={`${lineIndex}-${index}`}>{displayText[index] ?? ""}</span>;
+                    }
+
+                    const isRevealed = index < currentChar;
+                    const isActivePixel = index === currentChar;
+
+                    return (
+                      <span
+                        key={`${lineIndex}-${index}`}
+                        className={isRevealed || isActivePixel ? "opacity-100" : "opacity-0"}
+                      >
+                        {char === " "
+                          ? " "
+                          : isActivePixel
+                            ? pixelChars[(pixelFrame + index) % pixelChars.length]
+                            : char}
+                      </span>
+                    );
+                  })}
                   {isCurrentLine && (
                     <span
                       className={`inline-block w-[3px] h-[0.85em] ml-1 align-middle transition-opacity duration-100 ${
@@ -145,6 +175,12 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
             </div>
           );
         })}
+
+        <pre className="mt-8 font-mono text-[10px] leading-4 text-primary/45">
+{`[ boot ]
+pixel stream: ${String(Math.min(99, pixelFrame * 3)).padStart(2, "0")}%
+identity map: george.lazaridis`}
+        </pre>
 
         {/* Progress bar */}
         <div className="mt-10 mx-auto w-48 h-px bg-border overflow-hidden">
