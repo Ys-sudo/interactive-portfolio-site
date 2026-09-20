@@ -116,7 +116,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
               : lineIndex === currentLine
                 ? line.mono
                   ? line.text.slice(0, currentChar)
-                  : getPixelatedText(line.text, currentChar)
+                  : line.text
                 : "";
           const isCurrentLine = lineIndex === currentLine && phase === "typing";
 
