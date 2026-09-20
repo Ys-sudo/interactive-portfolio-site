@@ -61,6 +61,7 @@ const projects = [
       "A polished web development studio site offering custom WordPress solutions. Features responsive design, SEO-optimized architecture, and a Next.js-powered helpdesk platform with real-time updates and multi-method authentication.",
     tags: ["WordPress", "Next.js", "SEO", "UI/UX", "Python", "Shell"],
     highlight: "20+ client sites",
+    links: [{ label: "market-er.pl", url: "https://market-er.pl" }],
   },
   {
     title: "e-multicontent.com",
@@ -120,6 +121,23 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
           <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
             {project.description}
           </p>
+
+          {project.links?.length ? (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {project.links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-mono text-primary transition-colors hover:bg-primary/10"
+                >
+                  <span>{link.label}</span>
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              ))}
+            </div>
+          ) : null}
 
           <div className="flex flex-wrap gap-2 mt-auto">
             {project.tags.map((tag) => (
