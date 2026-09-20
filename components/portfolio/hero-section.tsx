@@ -6,7 +6,7 @@ import { ParticleNetwork } from "./particle-network";
 import { PixelText } from "./pixel-text";
 import { PortfolioImage } from "./portfolio-image";
 import {
-  PORTFOLIO_GATHERED_IMAGES,
+  PORTFOLIO_SECTION_IMAGES,
   PLACEHOLDER_NEON_PHOTOS,
   PORTFOLIO_EMAIL,
   PORTFOLIO_LOCATION,
@@ -77,7 +77,7 @@ export function HeroSection() {
               </div>
             </div>
             <h1
-              className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-balance leading-[0.95] transition-all duration-700 delay-100 ${
+              className={`mb-10 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-balance leading-[1] transition-all duration-700 delay-100 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
@@ -96,7 +96,7 @@ export function HeroSection() {
               </span>
             </h1>
             <p
-              className={`mt-8 max-w-xl text-muted-foreground leading-relaxed text-lg transition-all duration-700 delay-200 ${
+              className={`max-w-xl text-muted-foreground leading-relaxed text-lg transition-all duration-700 delay-200 ${
                 mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
@@ -180,7 +180,7 @@ export function HeroSection() {
               <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-primary/10 blur-2xl" />
               <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-border/70 bg-card shadow-2xl shadow-primary/10">
                 <PortfolioImage
-                  src={PORTFOLIO_GATHERED_IMAGES.hero}
+                  src={PORTFOLIO_SECTION_IMAGES.hero}
                   alt="Neon-lit portrait placeholder"
                   fallbackSrc={PLACEHOLDER_NEON_PHOTOS.hero}
                   className="h-full w-full object-cover"

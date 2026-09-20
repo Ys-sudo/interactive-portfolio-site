@@ -68,8 +68,8 @@ export function PixelText({
   const foreground = useMemo(() => buildForeground(text, tick), [text, tick])
 
   return (
-    <span className={`relative inline-block ${className}`}>
-      <span className="sr-only">
+    <span aria-label={text} className={`relative inline-block ${className}`}>
+      <span aria-hidden="true" className="opacity-0">
         {text}
       </span>
       <span aria-hidden="true" className="absolute inset-0">

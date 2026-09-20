@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { SectionHeader } from "./section-header";
 import { TiltCard } from "./tilt-card";
-import { PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio";
+import { PORTFOLIO_SECTION_IMAGES } from "@/lib/portfolio";
 
 const projects = [
   {
@@ -364,8 +364,8 @@ export function ProjectsSection() {
             <div className="overflow-hidden rounded-[2rem] border border-border bg-card">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src={PLACEHOLDER_NEON_PHOTOS.projects}
-                  alt="Neon workspace placeholder for projects section"
+                  src={PORTFOLIO_SECTION_IMAGES.projects}
+                  alt="Feature image for projects section"
                   fill
                   sizes="(max-width: 1024px) 100vw, 20vw"
                   className="h-full w-full object-cover"

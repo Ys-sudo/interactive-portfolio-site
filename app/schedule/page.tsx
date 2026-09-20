@@ -6,7 +6,7 @@ import { Navigation } from "@/components/portfolio/navigation";
 import { Footer } from "@/components/portfolio/footer";
 import { MagneticCursor } from "@/components/portfolio/magnetic-cursor";
 import { ScrollProgress } from "@/components/portfolio/scroll-progress";
-import { PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio";
+import { PORTFOLIO_SECTION_IMAGES } from "@/lib/portfolio";
 import { scheduleData } from "@/lib/schedule-data";
 
 type ScheduleMode = "base" | "light" | "progress";
@@ -42,8 +42,8 @@ export default function SchedulePage() {
             <div className="mb-8 max-w-3xl overflow-hidden rounded-[2rem] border border-border bg-card/70">
               <div className="aspect-[16/7] relative">
                 <Image
-                  src={PLACEHOLDER_NEON_PHOTOS.schedule}
-                  alt="Neon workspace placeholder for schedule page"
+                  src={PORTFOLIO_SECTION_IMAGES.schedule}
+                  alt="Feature image for schedule page"
                   fill
                   sizes="(max-width: 1024px) 100vw, 896px"
                   className="h-full w-full object-cover"

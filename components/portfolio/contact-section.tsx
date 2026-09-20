@@ -6,8 +6,8 @@ import { useTextScramble } from "@/hooks/use-text-scramble";
 import { Mail, MessageCircle, MapPin, ArrowUpRight } from "lucide-react";
 import { TiltCard } from "./tilt-card";
 import {
-  PLACEHOLDER_NEON_PHOTOS,
   PORTFOLIO_EMAIL,
+  PORTFOLIO_SECTION_IMAGES,
   PORTFOLIO_LOCATION,
   PORTFOLIO_SOCIALS,
 } from "@/lib/portfolio";
@@ -40,8 +40,8 @@ export function ContactSection() {
               >
                 <div className="relative aspect-[4/5]">
                   <Image
-                    src={PLACEHOLDER_NEON_PHOTOS.contact}
-                    alt="Neon workspace placeholder for contact section"
+                    src={PORTFOLIO_SECTION_IMAGES.contact}
+                    alt="Feature image for contact section"
                     fill
                     sizes="(max-width: 1024px) 100vw, 200px"
                     className="h-full w-full object-cover"

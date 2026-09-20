@@ -2,13 +2,13 @@
 
 import { Image as ImageIcon } from "lucide-react"
 
-import { PORTFOLIO_GATHERED_IMAGES, PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio"
+import { PLACEHOLDER_NEON_PHOTOS, PORTFOLIO_GALLERY_IMAGES } from "@/lib/portfolio"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { PortfolioImage } from "./portfolio-image"
 import { SectionHeader } from "./section-header"
 import { TiltCard } from "./tilt-card"
 
-const galleryImages = PORTFOLIO_GATHERED_IMAGES.gallery.map((src, index) => ({
+const galleryImages = PORTFOLIO_GALLERY_IMAGES.map((src, index) => ({
   src,
   alt: `Portfolio gallery image ${index + 1}`,
   rotation:
@@ -34,8 +34,8 @@ export function GallerySection() {
           <div className="space-y-6">
             <div className="flex items-center justify-between gap-4">
               <p className="max-w-2xl text-sm text-muted-foreground leading-relaxed">
-                A small visual break between selected work and case studies, using your gathered
-                photography set with graceful fallbacks until the local files are present.
+                A wider gallery pass collecting the remaining public image assets so the main
+                sections can use their dedicated feature images.
               </p>
               <pre className="hidden font-mono text-[10px] leading-4 text-primary/45 md:block">
 {`gallery.mount

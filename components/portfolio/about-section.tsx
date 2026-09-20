@@ -4,22 +4,7 @@ import Image from "next/image"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { useTextScramble } from "@/hooks/use-text-scramble"
 import { useEffect, useRef, useState } from "react"
-import { PLACEHOLDER_NEON_PHOTOS } from "@/lib/portfolio"
-
-const mediaFrames = [
-  {
-    src: "/DSCF6090.jpeg",
-    alt: "George working in a sunlit studio setting",
-    className: "md:col-span-2 md:row-span-2",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 66vw, 44vw",
-  },
-  {
-    src: "/DSCF7001.jpeg",
-    alt: "Portrait detail from George's editorial photo set",
-    className: "",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 22vw",
-  },
-]
+import { PORTFOLIO_SECTION_IMAGES } from "@/lib/portfolio"
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -96,8 +81,8 @@ export function AboutSection() {
               >
                 <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card aspect-square">
                   <Image
-                    src={PLACEHOLDER_NEON_PHOTOS.about}
-                    alt="Neon city placeholder for about section"
+                    src={PORTFOLIO_SECTION_IMAGES.about}
+                    alt="Portrait selected for the about section"
                     fill
                     sizes="(max-width: 1024px) 100vw, 200px"
                     className="h-full w-full object-cover"
@@ -177,64 +162,6 @@ export function AboutSection() {
                   <AnimatedCounter target={5} suffix="+" />
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">Agency Partners</p>
-              </div>
-            </div>
-            <div
-              className={`mt-12 transition-all duration-700 delay-[500ms] ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <p className="font-mono text-xs uppercase tracking-[0.28em] text-primary/80">
-                  Selected Frames
-                </p>
-                <span className="rounded-full border border-primary/20 px-3 py-1 text-[11px] font-mono text-muted-foreground">
-                  Fine arts × product builder
-                </span>
-              </div>
-              <div className="grid gap-4 md:grid-cols-3 auto-rows-[180px]">
-                {mediaFrames.map((frame) => (
-                  <div
-                    key={frame.src}
-                    className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-card ${frame.className}`}
-                  >
-                    <Image
-                      src={frame.src}
-                      alt={frame.alt}
-                      fill
-                      sizes={frame.sizes}
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
-                  </div>
-                ))}
-                <div className="group overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
-                  <div className="relative">
-                    <video
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                      aria-label="Short screen capture showing George's process in motion"
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      controls
-                    >
-                      <source src="/screen-recording-2025-03-23.mp4" type="video/mp4" />
-                      Your browser does not support the motion study video.
-                    </video>
-                    <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background/60 to-transparent" />
-                  </div>
-                  <div className="border-t border-border/80 px-4 py-3">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-primary/85">
-                      Motion Study
-                    </p>
-                    <p className="mt-1 text-sm text-foreground/85">
-                      Process captured in motion, keeping the portfolio human and tactile.
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
