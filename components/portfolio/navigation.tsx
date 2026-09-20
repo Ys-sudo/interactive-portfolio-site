@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Calendar } from "lucide-react";
+import { Download, Calendar, Github, Linkedin, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_PROFILE_LINKS, PORTFOLIO_EMAIL } from "@/lib/portfolio";
 
@@ -74,17 +74,28 @@ export function Navigation() {
           ))}
         </ul>
         <div className="hidden lg:flex items-center gap-3">
-          {NAV_PROFILE_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_PROFILE_LINKS.map((link) => {
+            const Icon =
+              link.label === "LinkedIn"
+                ? Linkedin
+                : link.label === "GitHub"
+                  ? Github
+                  : MessageCircle;
+
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                title={link.label}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-card/60 text-muted-foreground transition-all hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            );
+          })}
         </div>
         <div className="hidden md:flex items-center gap-3">
           <a

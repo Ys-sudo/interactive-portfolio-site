@@ -21,6 +21,29 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <ParticleNetwork />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
+      <div className="pointer-events-none absolute left-[8%] top-[18%] hidden xl:block">
+        <pre className="font-mono text-[10px] leading-4 text-primary/45">
+{`┌ SYSTEM ─────────┐
+│ stack: react     │
+│ mode: shipping   │
+│ signal: stable   │
+└──────────────────┘`}
+        </pre>
+      </div>
+      <div className="pointer-events-none absolute right-[7%] bottom-[22%] hidden xl:block">
+        <div className="grid grid-cols-6 gap-1">
+          {Array.from({ length: 36 }).map((_, index) => (
+            <span
+              key={index}
+              className={`h-2 w-2 rounded-[2px] ${
+                index % 4 === 0 || index % 7 === 0
+                  ? "bg-primary/30"
+                  : "bg-border/60"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 py-32">
         <div className="grid lg:grid-cols-[1fr_auto] gap-16 items-center">
@@ -33,6 +56,22 @@ export function HeroSection() {
               <p className="font-mono text-primary text-sm mb-4 tracking-wider">
                 Founder @ Coded Letter / Full-Stack Web Developer
               </p>
+              <div className="mb-8 inline-flex max-w-full items-center gap-4 overflow-hidden rounded-2xl border border-primary/20 bg-card/50 px-4 py-3 backdrop-blur">
+                <pre className="font-mono text-[10px] leading-4 text-primary/60">
+{`01001100 01001001 01010110 01000101
+&lt;/build&gt;  npm:off  dep:zero`}
+                </pre>
+                <div className="grid grid-cols-4 gap-1">
+                  {Array.from({ length: 16 }).map((_, index) => (
+                    <span
+                      key={index}
+                      className={`h-2.5 w-2.5 rounded-[2px] ${
+                        index % 3 === 0 ? "bg-primary/40" : "bg-border/70"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
             <h1
               className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-balance leading-[0.95] transition-all duration-700 delay-100 ${
@@ -127,6 +166,13 @@ export function HeroSection() {
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/15 to-transparent" />
+                <div className="absolute left-4 top-4 rounded-xl border border-primary/20 bg-background/70 px-3 py-2 backdrop-blur">
+                  <pre className="font-mono text-[10px] leading-4 text-primary/55">
+{`[pixel stream]
+██░░██░░
+░██░░███`}
+                  </pre>
+                </div>
                 <div className="absolute bottom-5 right-5 rounded-2xl border border-primary/30 bg-background/85 px-4 py-3 backdrop-blur">
                   <span className="font-mono text-lg text-primary/80">{"</>"}</span>
                 </div>
