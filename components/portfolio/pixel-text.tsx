@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react"
 
-const PIXEL_CHARS = ["█", "▓", "▒", "░"]
+const PIXEL_CHARS = ["█", "▓", "▒", "░", "¦", "¦", "¦", ":", "·", ">", "/", "\\"]
+const STATIC_CHARS = /[./:@_-]/
 
 function buildOverlay(text: string, tick: number) {
   const animatedIndexes = text
@@ -16,8 +17,9 @@ function buildOverlay(text: string, tick: number) {
     .split("")
     .map((char, index) => {
       if (char === " ") return " "
-      if (/[./:@_-]/.test(char)) return char
-      if (index === activeIndex) return PIXEL_CHARS[tick % PIXEL_CHARS.length]
+      if (STATIC_CHARS.test(char)) return char
+      if (index === activeIndex) return PIXEL_CHARS[(tick + index) % PIXEL_CHARS.length]
+      if (Math.abs(index - activeIndex) === 1) return PIXEL_CHARS[(tick + index + 3) % PIXEL_CHARS.length]
       return char
     })
     .join("")
@@ -36,9 +38,10 @@ function buildForeground(text: string, tick: number) {
 
   return text.split("").map((char, index) => {
     if (char === " ") return " "
-    if (/[./:@_-]/.test(char)) return char
+    if (STATIC_CHARS.test(char)) return char
     if (index === activeIndex) return PIXEL_CHARS[(tick + index) % PIXEL_CHARS.length]
-    if (index === trailingIndex) return PIXEL_CHARS[(tick + index + 1) % PIXEL_CHARS.length]
+    if (index === trailingIndex) return PIXEL_CHARS[(tick + index + 2) % PIXEL_CHARS.length]
+    if (Math.abs(index - activeIndex) === 2) return PIXEL_CHARS[(tick + index + 5) % PIXEL_CHARS.length]
     return char
   })
 }
@@ -47,7 +50,7 @@ export function PixelText({
   text,
   className = "",
   overlayClassName = "",
-  speed = 160,
+  speed = 220,
 }: {
   text: string
   className?: string
@@ -74,12 +77,17 @@ export function PixelText({
       </span>
       <span aria-hidden="true" className="absolute inset-0">
         {foreground.map((char, index) => (
-          <span key={`${text}-${index}`}>{char}</span>
+          <span
+            key={`${text}-${index}`}
+            className="inline-block transition-all duration-500 ease-out"
+          >
+            {char}
+          </span>
         ))}
       </span>
       <span
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-0 translate-x-[1px] translate-y-[-1px] opacity-20 ${overlayClassName}`}
+        className={`pointer-events-none absolute inset-0 translate-x-[1px] translate-y-[-1px] opacity-20 transition-opacity duration-500 ${overlayClassName}`}
       >
         {overlay}
       </span>

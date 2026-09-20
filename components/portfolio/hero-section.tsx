@@ -83,14 +83,14 @@ export function HeroSection() {
             >
               <PixelText
                 text="George"
-                speed={260}
+                speed={340}
                 overlayClassName="text-primary/24"
               />
               <br />
               <span className="text-primary">
                 <PixelText
                   text="Lazaridis"
-                  speed={260}
+                  speed={340}
                   overlayClassName="text-primary/30"
                 />
               </span>

@@ -28,36 +28,22 @@ export const PLACEHOLDER_NEON_PHOTOS = {
 
 export const PORTFOLIO_SECTION_IMAGES = {
   hero: "/DSCF9085.jpeg",
-  about: "/5A8FC6E1-7E6D-4D02-AB0D-696028CE40F7.jpg",
+  about: "/F339B6FC-4182-4025-96B8-D32E36E41EAA.jpg",
   projects: "/laser-security-1-aKmf2u-scaled.jpg",
   contact: "/E2158E9A-2F06-4FB1-A768-89884BE46C1E.jpg",
   schedule: "/ChatGPT_Image_Sep_18_2026_08_57_07_AM.png",
 } as const;
-
-export const PORTFOLIO_MOTION_FRAMES = [
-  {
-    src: "/DSCF6090.jpeg",
-    alt: "George working in a sunlit studio setting",
-    className: "md:col-span-2 md:row-span-2",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 66vw, 44vw",
-  },
-  {
-    src: "/DSCF7001.jpeg",
-    alt: "Portrait detail from George's editorial photo set",
-    className: "",
-    sizes: "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 22vw",
-  },
-] as const;
 
 export const PORTFOLIO_GALLERY_IMAGES = [
   "/soldia_000.png",
   "/DSCF6015.jpeg",
   "/1759755179798.jpeg",
   "/DSCF5906.jpeg",
+  "/DSCF6090.jpeg",
   "/DSCF6097.jpeg",
+  "/DSCF7001.jpeg",
   "/DSCF7012.jpeg",
   "/F339B6FC-4182-4025-96B8-D32E36E41EAA.jpg",
   "/c1bd1073-12d3-4a5f-bba6-bc00f2f3aab8.png",
   "/d69265df-4b6e-473c-b47e-4cb5ce699f51.png",
-  "/_contact_sheet.jpg",
 ] as const;

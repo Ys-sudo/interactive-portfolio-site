@@ -1,8 +1,5 @@
 "use client"
 
-import Image from "next/image"
-
-import { PORTFOLIO_MOTION_FRAMES } from "@/lib/portfolio"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function MotionSection() {
@@ -25,24 +22,9 @@ export function MotionSection() {
               Fine arts × product builder
             </span>
           </div>
-          <div className="grid gap-4 md:grid-cols-3 auto-rows-[180px]">
-            {PORTFOLIO_MOTION_FRAMES.map((frame) => (
-              <div
-                key={frame.src}
-                className={`group relative overflow-hidden rounded-2xl border border-border/80 bg-card ${frame.className}`}
-              >
-                <Image
-                  src={frame.src}
-                  alt={frame.alt}
-                  fill
-                  sizes={frame.sizes}
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/75 via-background/5 to-transparent" />
-              </div>
-            ))}
-            <div className="group overflow-hidden rounded-2xl border border-border/80 bg-card md:row-span-2">
-              <div className="relative">
+          <div className="mx-auto max-w-3xl">
+            <div className="group overflow-hidden rounded-[2rem] border border-border/80 bg-card">
+              <div className="relative aspect-[16/9]">
                 <video
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                   aria-label="Short screen capture showing George's process in motion"
