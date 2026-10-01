@@ -20,7 +20,12 @@ const projects = [
     period: "2026 — Present",
     description:
       "My zero-dependency startup site and delivery hub, bringing together helpdesk tooling, Netlify Functions, server management, superfunky.pro distribution, prototyping, and open-source publishing.",
-    tags: ["0 dependencies", "Netlify Functions", "Open Source", "Server Management"],
+    tags: [
+      "0 dependencies",
+      "Netlify Functions",
+      "Open Source",
+      "Server Management",
+    ],
     highlight: "Own startup",
     supportingLabel: "Core scope",
     supporting: [
@@ -51,17 +56,26 @@ const projects = [
     url: "https://artopen.pl",
     period: "2020 — Present",
     description:
-      "Long-term B2B and B2C collaboration spanning the agency website, the Promotron e-commerce platform, and custom delivery for client brands across WordPress, React, and headless systems.",
-    tags: ["WordPress", "React", "Headless", "E-commerce"],
+      "Long-term B2B and B2C collaboration spanning the agency website, custom integrations and workflows, the Promotron e-commerce platform, and custom delivery for client brands across WordPress, React, and headless systems.",
+    tags: [
+      "WordPress",
+      "React",
+      "Headless",
+      "E-commerce",
+      "PHP",
+      "Python",
+      "AI",
+      "PromoTron",
+    ],
     highlight: "6-year collaboration",
     supportingLabel: "Selected client work",
     supporting: [
       { label: "artopen.pl", url: "https://artopen.pl" },
       { label: "sklep.artopen.pl", url: "https://sklep.artopen.pl" },
-      { label: "kreator-kalendarzy.pl", url: "https://kreator-kalendarzy.pl" },
       { label: "bekuplast.com.pl", url: "https://bekuplast.com.pl" },
-      { label: "DeLaval" },
-      { label: "Rexer" },
+      { label: "DeLaval", url: "https://artopen.pl/portfolio/alfa-laval/" },
+      { label: "Rexer", url: "https://rexer.pl" },
+      { label: "kreator-kalendarzy.pl", url: "https://kreator-kalendarzy.pl" },
       { label: "and more (15+)..." },
     ],
   },
@@ -87,12 +101,21 @@ const projects = [
     period: "Archive / 1-year collaboration",
     description:
       "Archive of a studio collaboration focused on custom WordPress and WooCommerce builds, plugins, tailored themes, a Next.js helpdesk platform, shell scripting, Python automation, server administration, and cybersecurity-oriented technical support.",
-    tags: ["WordPress", "Next.js", "Python", "Server Admin"],
+    tags: [
+      "WordPress",
+      "PHP",
+      "JavaScript",
+      "Next.js",
+      "Python",
+      "Shell",
+      "Cybersec",
+      "Server Admin",
+    ],
     highlight: "Agency collaboration",
     supportingLabel: "Selected brands",
     supporting: [
       { label: "organicseries.pl", url: "https://organicseries.pl" },
-      { label: "bbg.pl", url: "https://bbg.pl" },
+      { label: "bb-g.pl", url: "https://bb-g.pl" },
       { label: "triplesofficial.pl", url: "https://triplesofficial.pl" },
       { label: "and more (20+)..." },
     ],
@@ -109,7 +132,6 @@ const projects = [
     supporting: [
       { label: "e-multicontent.pl", url: "https://e-multicontent.pl" },
       { label: "let-pr.com", url: "https://let-pr.com" },
-      { label: "iv-group.pl", url: "https://iv-group.pl" },
     ],
   },
   {
@@ -117,14 +139,28 @@ const projects = [
     url: "https://github.com/ys-sudo",
     period: "2018 — Present",
     description:
-      "Independent client delivery across WooCommerce, legacy CMS implementations, performance optimization including Ruby/Jekyll work for Logicaltrust, and headless builds developed alongside long-term agency and studio collaborations.",
-    tags: ["Freelance", "WooCommerce", "Performance", "Headless"],
+      "Independent client delivery across WooCommerce, legacy CMS implementations, performance optimization including Ruby/Jekyll work for Logicaltrust, and headless builds developed alongside long-term agency and studio collaborations, shell scripting, data scrapping, automations and SEO.",
+    tags: [
+      "Freelance",
+      "WooCommerce",
+      "Performance",
+      "Headless",
+      "VCMS",
+      "React",
+      "Ruby",
+      "PHP",
+      "Python",
+      "Shell",
+    ],
     highlight: "Independent delivery",
     supportingLabel: "Selected work",
     supporting: [
       { label: "powerenergy.com.pl", url: "https://powerenergy.com.pl" },
-      { label: "axel-travel.pl" },
-      { label: "Logicaltrust.net (Ruby / Jekyll)", url: "https://logicaltrust.net" },
+      { label: "axel-travel.pl", url: "https://axel-travel.pl" },
+      {
+        label: "Logicaltrust.net",
+        url: "https://logicaltrust.net",
+      },
       { label: "3dprintingstl.com", url: "https://3dprintingstl.com" },
       { label: "and more (20+)..." },
     ],
@@ -140,8 +176,14 @@ const projects = [
     supportingLabel: "Selected projects",
     supporting: [
       { label: "plantguardian.app", url: "https://plantguardian.app" },
-      { label: "hair-coloring-app", url: "https://ys-sudo.github.io/hair-coloring-app/" },
-      { label: "PUUF VR project", url: "https://github.com/Ys-sudo/puuf-vr-project" },
+      {
+        label: "hair-coloring-app",
+        url: "https://ar.hair-color.app",
+      },
+      {
+        label: "PUUF VR project",
+        url: "https://github.com/Ys-sudo/puuf-vr-project",
+      },
       { label: "More on GitHub", url: "https://github.com/ys-sudo" },
     ],
   },
@@ -182,7 +224,7 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
 
             <div className="mt-3 flex items-start justify-between gap-4">
               <pre className="font-mono text-[10px] leading-4 text-primary/45">
-{`> route.project
+                {`> route.project
 [id] stable
 [fx] pixel`}
               </pre>
@@ -321,7 +363,12 @@ export function ProjectsSection() {
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
-    if (!el || !dragRef.current.active || dragRef.current.pointerId !== e.pointerId) return;
+    if (
+      !el ||
+      !dragRef.current.active ||
+      dragRef.current.pointerId !== e.pointerId
+    )
+      return;
 
     const dx = e.clientX - dragRef.current.startX;
     if (!dragRef.current.moved) {
@@ -334,7 +381,12 @@ export function ProjectsSection() {
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
-    if (!el || !dragRef.current.active || dragRef.current.pointerId !== e.pointerId) return;
+    if (
+      !el ||
+      !dragRef.current.active ||
+      dragRef.current.pointerId !== e.pointerId
+    )
+      return;
 
     dragRef.current.active = false;
     dragRef.current.pointerId = -1;
@@ -373,7 +425,7 @@ export function ProjectsSection() {
               </div>
             </div>
             <pre className="hidden font-mono text-[10px] leading-4 text-primary/45 lg:block">
-{`project.buffer
+              {`project.buffer
 ░░ escape lane
 ██ slide focus`}
             </pre>
@@ -383,7 +435,7 @@ export function ProjectsSection() {
             <div className="mb-8">
               <div className="w-full overflow-hidden rounded-[1.5rem] border border-primary/15 bg-card/50 px-4 py-3 backdrop-blur">
                 <pre className="font-mono text-[10px] leading-4 text-primary/55">
-{`// swipe lane: 80%
+                  {`// swipe lane: 80%
 // left rail: 20%
 // navigation: smooth`}
                 </pre>

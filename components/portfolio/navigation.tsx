@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Calendar, Github, Linkedin, MessageCircle } from "lucide-react";
+import {
+  Download,
+  Calendar,
+  Github,
+  Linkedin,
+  MessageCircle,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_PROFILE_LINKS } from "@/lib/portfolio";
 
@@ -84,7 +90,7 @@ export function Navigation() {
           ))}
           <li>
             <a
-              href="/Georgios-Lazaridis-CV.html"
+              href="/georgios-lazaridis-cv"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
